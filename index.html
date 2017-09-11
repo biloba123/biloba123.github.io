@@ -503,8 +503,7 @@
           
             <p>使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章<a href="http://www.jianshu.com/p/e11a47f1e53c" target="_blank" rel="external">http://www.jianshu.com/p/e11a47f1e53c</a></p>
 <p>这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息</p>
-<p>##NodeMCU</p>
-<p>###1. ESP8266介绍<br>介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行</p>
+<h2 id="NodeMCU"><a href="#NodeMCU" class="headerlink" title="NodeMCU"></a>NodeMCU</h2><h3 id="1-ESP8266介绍"><a href="#1-ESP8266介绍" class="headerlink" title="1. ESP8266介绍"></a>1. ESP8266介绍</h3><p>介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行</p>
 <p>具有以下特点：</p>
 <ul>
 <li>超小尺寸</li>
@@ -513,10 +512,10 @@
 <li>可编程</li>
 <li>低成本</li>
 </ul>
-<p>###2. NodeMCU介绍<br>NodeMCU是一款基于ESP8266模块的开源硬件，符合Arduino框架。同时可使用Node.js编程</p>
+<h3 id="2-NodeMCU介绍"><a href="#2-NodeMCU介绍" class="headerlink" title="2. NodeMCU介绍"></a>2. NodeMCU介绍</h3><p>NodeMCU是一款基于ESP8266模块的开源硬件，符合Arduino框架。同时可使用Node.js编程</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-f76e3ee2bd0a2c78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NodeMCU"></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-b146c6aeacefa406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="引脚"></p>
-<p>###3. WiFi测试<br>先要安装Arduino IDE For ESP8266<br>Arduino IDE For ESP8266是根据Arduino修改的专门烧写ESP8266开发板的IDE。在装好Arduino IDE后：</p>
+<h3 id="3-WiFi测试"><a href="#3-WiFi测试" class="headerlink" title="3. WiFi测试"></a>3. WiFi测试</h3><p>先要安装Arduino IDE For ESP8266<br>Arduino IDE For ESP8266是根据Arduino修改的专门烧写ESP8266开发板的IDE。在装好Arduino IDE后：</p>
 <ol>
 <li>打开Arduino 文件-&gt;首选项，在 附加开发管理网站 中填入<a href="http://arduino.esp8266.com/stable/package_esp8266com_index.json，然后点击确定保存" target="_blank" rel="external">http://arduino.esp8266.com/stable/package_esp8266com_index.json，然后点击确定保存</a></li>
 </ol>
@@ -539,8 +538,7 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-976b7c3babf87b5a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>烧到板子上打开窗口监视器可以看到扫描出来的附近热点</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-6523a0a7a15c39dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>##MQTT</p>
-<p>###1. MQTT介绍<br>消息队列遥测传输(MQTT)是IBM开发的即时通讯协议，为计算能力有限且工作在低带宽、不可靠网络的传感器或控制设备而设计。比如对于移动开发，它可以用于消息推送，即时通讯等等</p>
+<h2 id="MQTT"><a href="#MQTT" class="headerlink" title="MQTT"></a>MQTT</h2><h3 id="1-MQTT介绍"><a href="#1-MQTT介绍" class="headerlink" title="1. MQTT介绍"></a>1. MQTT介绍</h3><p>消息队列遥测传输(MQTT)是IBM开发的即时通讯协议，为计算能力有限且工作在低带宽、不可靠网络的传感器或控制设备而设计。比如对于移动开发，它可以用于消息推送，即时通讯等等</p>
 <p><strong>特性：</strong></p>
 <ul>
 <li>发布/订阅的消息模式，提供一对多的消息发布</li>
@@ -549,8 +547,7 @@
 <li>传输小、开销小</li>
 <li>LastWill通知中断机制</li>
 </ul>
-<p>###2. MQTT原理介绍</p>
-<ul>
+<h3 id="2-MQTT原理介绍"><a href="#2-MQTT原理介绍" class="headerlink" title="2. MQTT原理介绍"></a>2. MQTT原理介绍</h3><ul>
 <li>客户端：发布者(Publish)、订阅者(SubScribe)，客户端有ID,ID冲突会挤掉先连接客户端。</li>
 <li>服务器端：代理(Broker)</li>
 <li>消息：主题(Topic)+负载(payload)</li>
@@ -560,10 +557,10 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-923125333073a289.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>QQ用户2(账号QQ1000)向QQ用户1(QQ9999)发送消息“Hello World”.<br>发送者：QQ用户2<br>订阅者：QQ用户1<br>消息：QQ9999+”Hello World”.</p>
 <p>消息发送至服务器，服务器查找QQ9999对应的用户后，发送信息给QQ用户2.</p>
-<p>###3. MQTT ESP8266库<br>菜单“项目”-“加载库”-“管理库”，搜索安装“PubSubClient”</p>
+<h3 id="3-MQTT-ESP8266库"><a href="#3-MQTT-ESP8266库" class="headerlink" title="3. MQTT ESP8266库"></a>3. MQTT ESP8266库</h3><p>菜单“项目”-“加载库”-“管理库”，搜索安装“PubSubClient”</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-3a3ea6f9bdea82e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>PubSubClient有一些示例可以打开mqtt_esp8266看下</p>
-<p>###4. MQTT接发消息体验<br>这里做两个示例<br><strong>1. NodeMCU发布消息：光照强度传感器测得环境光照强度发布到服务器，手机订阅该Topic接收光强信息</strong></p>
+<h3 id="4-MQTT接发消息体验"><a href="#4-MQTT接发消息体验" class="headerlink" title="4. MQTT接发消息体验"></a>4. MQTT接发消息体验</h3><p>这里做两个示例<br><strong>1. NodeMCU发布消息：光照强度传感器测得环境光照强度发布到服务器，手机订阅该Topic接收光强信息</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">#include &lt;ESP8266WiFi.h&gt;</div><div class="line">#include &lt;PubSubClient.h&gt;</div><div class="line">int pinLED = D2;</div><div class="line"></div><div class="line">const char* ssid = &quot;********&quot;;//连接的路由器的名字</div><div class="line">const char* password = &quot;********&quot;;//连接的路由器的密码</div><div class="line">const char* mqtt_server = &quot;********&quot;;//服务器的地址 </div><div class="line">const int port=****;//服务器端口号</div><div class="line"></div><div class="line">WiFiClient espClient;</div><div class="line">PubSubClient client(espClient);</div><div class="line"></div><div class="line">int light=255;</div><div class="line"></div><div class="line">void setup_wifi() &#123;//自动连WIFI接入网络</div><div class="line">  delay(10);</div><div class="line">  WiFi.begin(ssid, password);</div><div class="line">  while (WiFi.status() != WL_CONNECTED) &#123;</div><div class="line">    delay(500);</div><div class="line">    Serial.print(&quot;...&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void callback(char* topic, byte* payload, unsigned int length) &#123;//用于接收数据</div><div class="line">  int l=0;</div><div class="line">  int p=1;</div><div class="line">  for (int i = length-1; i &gt;=0; i--) &#123;</div><div class="line">    l+=(int)((char)payload[i]-&apos;0&apos;)*p;</div><div class="line">    p*=10;</div><div class="line">  &#125;</div><div class="line">  light=l;</div><div class="line">  Serial.println(l);//换行</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">void reconnect() &#123;//等待，直到连接上服务器</div><div class="line">  while (!client.connected()) &#123;//如果没有连接上</div><div class="line">    if (client.connect(&quot;biloba&quot;)+random(999999999)) &#123;//接入时的用户名，尽量取一个很不常用的用户名</div><div class="line">      client.subscribe(&quot;LED&quot;);//接收外来的数据时的intopic</div><div class="line">    &#125; else &#123;</div><div class="line">      Serial.print(&quot;failed, rc=&quot;);//连接失败</div><div class="line">      Serial.print(client.state());//重新连接</div><div class="line">      Serial.println(&quot; try again in 5 seconds&quot;);//延时5秒后重新连接</div><div class="line">      delay(5000);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void setup() &#123;//初始化程序，只运行一遍</div><div class="line">  Serial.begin(9600);//设置串口波特率（与烧写用波特率不是一个概念）</div><div class="line">  setup_wifi();//自动连WIFI接入网络</div><div class="line">  client.setServer(mqtt_server, port);//端口号</div><div class="line">  client.setCallback(callback); //用于接收服务器接收的数据</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">void loop() &#123;//主循环</div><div class="line">   reconnect();//确保连上服务器，否则一直等待。</div><div class="line">   client.loop();//MUC接收数据的主循环函数。</div><div class="line">   analogWrite(pinLED,light);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>先使用ESP8266WiFi库的方法连接一个wifi，连接成功后loop中获取光强并转换为json格式，发布到light的Topic主题下，可以打开服务器web管理页面，可以在Topic找到它</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-ca912322e21209c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
