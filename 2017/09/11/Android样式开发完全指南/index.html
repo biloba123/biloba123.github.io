@@ -132,7 +132,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-54f6b57e0fa24da0.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-64727c525e24f384.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-bd52a45fa5686d5f.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-09-11T14:02:54.208Z">
+<meta property="og:updated_time" content="2017-09-11T14:06:00.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android样式开发完全指南">
 <meta name="twitter:description" content="记得刚开始学Android时，看着自己完全用系统控件写出的不忍直视的界面，对于如何做出不一样的按钮，让它们在不同状态下有不一样的效果很是好奇。后来才知道了些shape，selector之类，但很长时间以来都没对样式开发做过全面的整理（主要因为懒…），所以有了这篇文章。 好了废话不多说，开始我们的样式开发之旅。因为整理了基本所有的样式，文章可能有点长，可以收藏下来看，当然看的时候也要自己试试效果，不">
@@ -448,6 +448,7 @@
       
         <p>记得刚开始学Android时，看着自己完全用系统控件写出的不忍直视的界面，对于如何做出不一样的按钮，让它们在不同状态下有不一样的效果很是好奇。后来才知道了些shape，selector之类，但很长时间以来都没对样式开发做过全面的整理（主要因为懒…），所以有了这篇文章。</p>
 <p>好了废话不多说，开始我们的样式开发之旅。因为整理了基本所有的样式，文章可能有点长，可以收藏下来看，当然看的时候也要自己试试效果，不然很容易过几天又忘记了，下次用的时候还要翻一遍。<br>本文将按下面几个模块讲：<br><strong>1. shape：基础的形状定义</strong><br><strong>2. selector：不同状态下的形状变化</strong><br><strong>3. layer-list：多个形状层叠</strong><br><strong>4. drawable：各式drawable和drawable动画</strong><br><strong>5. View Animation：简单的视图动画</strong><br><strong>6. Property Animation：更强大的属性动画</strong><br><strong>7. style和theme</strong></p>
+<a id="more"></a>
 <h2 id="1-shape"><a href="#1-shape" class="headerlink" title="1. shape"></a>1. shape</h2><p>shape用来定义基本的形状，一般项目的drawable目录下，布局中各view通过设置android:background属性来引用。</p>
 <h3 id="rectangle（矩形，默认的形状）"><a href="#rectangle（矩形，默认的形状）" class="headerlink" title="rectangle（矩形，默认的形状）"></a>rectangle（矩形，默认的形状）</h3><p>新建一个drawable resource file，取名为bg_btn，来为按钮定义形状，根节点默认是selector，改成shape，shape下能设置多个特性，我们一个一个来看</p>
 <p><strong>solid</strong>：设置形状填充的颜色，只有android:color一个属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;solid android:color=&quot;@android:color/holo_blue_dark&quot;/&gt;</div><div class="line">&lt;/shape&gt;</div></pre></td></tr></table></figure></p>
