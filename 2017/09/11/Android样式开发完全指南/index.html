@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="shape,drawable," />
 
 
 
@@ -97,16 +97,46 @@
 
 
 
-<meta name="description" content="走过的人说树枝长了，走过的人说树枝在长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这儿有一只企鹅">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="记得刚开始学Android时，看着自己完全用系统控件写出的不忍直视的界面，对于如何做出不一样的按钮，让它们在不同状态下有不一样的效果很是好奇。后来才知道了些shape，selector之类，但很长时间以来都没对样式开发做过全面的整理（主要因为懒…），所以有了这篇文章。 好了废话不多说，开始我们的样式开发之旅。因为整理了基本所有的样式，文章可能有点长，可以收藏下来看，当然看的时候也要自己试试效果，不">
+<meta name="keywords" content="shape,drawable">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android样式开发完全指南">
+<meta property="og:url" content="http://yoursite.com/2017/09/11/Android样式开发完全指南/index.html">
 <meta property="og:site_name" content="这儿有一只企鹅">
-<meta property="og:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta property="og:description" content="记得刚开始学Android时，看着自己完全用系统控件写出的不忍直视的界面，对于如何做出不一样的按钮，让它们在不同状态下有不一样的效果很是好奇。后来才知道了些shape，selector之类，但很长时间以来都没对样式开发做过全面的整理（主要因为懒…），所以有了这篇文章。 好了废话不多说，开始我们的样式开发之旅。因为整理了基本所有的样式，文章可能有点长，可以收藏下来看，当然看的时候也要自己试试效果，不">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-8334c20f0b9a4986.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-bef56bf46605fd2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-26be370dd0834dd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-73acd06ed9f7c43d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-1757c18df0ea487f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-02c54ca4e239396f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-8ac571589b518c50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-b715f0d1a82b9f62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-b2c3419c00721cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-e4fd99e7c4a939ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-db89615b5b89d827.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-128034eeb953453f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-197cf045ba8cce29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-fa6518b7d0ae07aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-c97c7b6847d084e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-68d9fe89670abc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-9aa71d08720180a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-e69151745bb3df2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-bfd230a842b3e88f.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-0890cea4399b346e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-e1156d59fea1b673.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-575864176560c7ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-b6885a0bab5eb75c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-9ca6a32c2724cd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-54f6b57e0fa24da0.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-64727c525e24f384.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-bd52a45fa5686d5f.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-09-11T14:02:54.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这儿有一只企鹅">
-<meta name="twitter:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta name="twitter:title" content="Android样式开发完全指南">
+<meta name="twitter:description" content="记得刚开始学Android时，看着自己完全用系统控件写出的不忍直视的界面，对于如何做出不一样的按钮，让它们在不同状态下有不一样的效果很是好奇。后来才知道了些shape，selector之类，但很长时间以来都没对样式开发做过全面的整理（主要因为懒…），所以有了这篇文章。 好了废话不多说，开始我们的样式开发之旅。因为整理了基本所有的样式，文章可能有点长，可以收藏下来看，当然看的时候也要自己试试效果，不">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5734256-8334c20f0b9a4986.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +166,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/11/Android样式开发完全指南/"/>
 
 
 
 
 
-  <title>这儿有一只企鹅</title>
+  <title>Android样式开发完全指南 | 这儿有一只企鹅</title>
   
 
 
@@ -171,8 +201,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,9 +342,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -345,9 +374,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/Android样式开发完全指南/" itemprop="url">Android样式开发完全指南</a></h1>
+          <h1 class="post-title" itemprop="name headline">Android样式开发完全指南</h1>
         
 
         <div class="post-meta">
@@ -419,9 +446,7 @@
       
 
       
-        
-          
-            <p>记得刚开始学Android时，看着自己完全用系统控件写出的不忍直视的界面，对于如何做出不一样的按钮，让它们在不同状态下有不一样的效果很是好奇。后来才知道了些shape，selector之类，但很长时间以来都没对样式开发做过全面的整理（主要因为懒…），所以有了这篇文章。</p>
+        <p>记得刚开始学Android时，看着自己完全用系统控件写出的不忍直视的界面，对于如何做出不一样的按钮，让它们在不同状态下有不一样的效果很是好奇。后来才知道了些shape，selector之类，但很长时间以来都没对样式开发做过全面的整理（主要因为懒…），所以有了这篇文章。</p>
 <p>好了废话不多说，开始我们的样式开发之旅。因为整理了基本所有的样式，文章可能有点长，可以收藏下来看，当然看的时候也要自己试试效果，不然很容易过几天又忘记了，下次用的时候还要翻一遍。<br>本文将按下面几个模块讲：<br><strong>1. shape：基础的形状定义</strong><br><strong>2. selector：不同状态下的形状变化</strong><br><strong>3. layer-list：多个形状层叠</strong><br><strong>4. drawable：各式drawable和drawable动画</strong><br><strong>5. View Animation：简单的视图动画</strong><br><strong>6. Property Animation：更强大的属性动画</strong><br><strong>7. style和theme</strong></p>
 <h2 id="1-shape"><a href="#1-shape" class="headerlink" title="1. shape"></a>1. shape</h2><p>shape用来定义基本的形状，一般项目的drawable目录下，布局中各view通过设置android:background属性来引用。</p>
 <h3 id="rectangle（矩形，默认的形状）"><a href="#rectangle（矩形，默认的形状）" class="headerlink" title="rectangle（矩形，默认的形状）"></a>rectangle（矩形，默认的形状）</h3><p>新建一个drawable resource file，取名为bg_btn，来为按钮定义形状，根节点默认是selector，改成shape，shape下能设置多个特性，我们一个一个来看</p>
@@ -640,8 +665,6 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-bd52a45fa5686d5f.gif?imageMogr2/auto-orient/strip" alt=""></p>
 <p>##5. View Animation<br>未完</p>
 
-          
-        
       
     </div>
     
@@ -651,316 +674,72 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章对你有帮助，给我些鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吕晴阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="吕晴阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/MQTT--服务器搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吕晴阳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这儿有一只企鹅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/MQTT--服务器搭建/" itemprop="url">MQTT--服务器搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T17:09:39+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Arduino/" itemprop="url" rel="index">
-                    <span itemprop="name">Arduino</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/shape/" rel="tag"># shape</a>
           
-
+            <a href="/tags/drawable/" rel="tag"># drawable</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。</p>
-<blockquote>
-<p>MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M2M）或“物联网”世界的理想选择，以及带宽和电池电量非常高的移动应用。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/MQTT--服务器搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/11/MQTT--服务器搭建/" rel="next" title="MQTT--服务器搭建">
+                <i class="fa fa-chevron-left"></i> MQTT--服务器搭建
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/MQTT--NodeMCU及MQTT接发消息体验/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吕晴阳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这儿有一只企鹅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/MQTT--NodeMCU及MQTT接发消息体验/" itemprop="url">MQTT--NodeMCU及MQTT接发消息体验</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T12:32:55+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Arduino/" itemprop="url" rel="index">
-                    <span itemprop="name">Arduino</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章<a href="http://www.jianshu.com/p/e11a47f1e53c" target="_blank" rel="external">http://www.jianshu.com/p/e11a47f1e53c</a></p>
-<p>这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息</p>
-<h2 id="NodeMCU"><a href="#NodeMCU" class="headerlink" title="NodeMCU"></a>NodeMCU</h2><h3 id="ESP8266介绍"><a href="#ESP8266介绍" class="headerlink" title="ESP8266介绍"></a>ESP8266介绍</h3><p>介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/11/MQTT--NodeMCU及MQTT接发消息体验/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -970,10 +749,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -981,6 +761,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -1001,8 +787,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -1100,6 +895,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-shape"><span class="nav-number">1.</span> <span class="nav-text">1. shape</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rectangle（矩形，默认的形状）"><span class="nav-number">1.1.</span> <span class="nav-text">rectangle（矩形，默认的形状）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#oval（椭圆形，常用来画圆形）"><span class="nav-number">1.2.</span> <span class="nav-text">oval（椭圆形，常用来画圆形）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line（线形，画实线和虚线）"><span class="nav-number">1.3.</span> <span class="nav-text">line（线形，画实线和虚线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ring（环形，可以画环形进度条）"><span class="nav-number">1.4.</span> <span class="nav-text">ring（环形，可以画环形进度条）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-selector"><span class="nav-number">2.</span> <span class="nav-text">2. selector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-layer-list"><span class="nav-number">3.</span> <span class="nav-text">3. layer-list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-drawable"><span class="nav-number">4.</span> <span class="nav-text">4. drawable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通图片"><span class="nav-number">4.1.</span> <span class="nav-text">普通图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector-Drawable"><span class="nav-number">4.2.</span> <span class="nav-text">Vector Drawable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#level-list"><span class="nav-number">4.3.</span> <span class="nav-text">level-list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-list"><span class="nav-number">4.4.</span> <span class="nav-text">animation-list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animated-rotate"><span class="nav-number">4.5.</span> <span class="nav-text">animated-rotate</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1227,6 +1038,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -1252,6 +1067,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2144148"></script>
+      <!-- UY END -->
     
   
 
