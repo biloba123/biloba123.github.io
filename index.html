@@ -342,10 +342,9 @@
             <p>MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。</p>
 <blockquote>
 <p>MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M2M）或“物联网”世界的理想选择，以及带宽和电池电量非常高的移动应用。</p>
-<p>##前言<br>最近要用arduino开发自主借还书的demo，通过mqtt协议发布数据到服务器，然后用APP订阅相应Topic接收数据，做相应处理。第一步先是搭建mqtt服务器，现在开源mqtt的broker比较多，最后还是选择了Apollo。当然如果不想自己搭建也可以用相应平台，比如阿里云的消息队列中有mqtt，以及物联网平台onenet等等（但是用他们要设置各种key和id，我试了能够连接，但publish始终不行，不知道是哪里设置错了）</p>
 </blockquote>
-<p>##搭建MQTT服务器</p>
-<ol>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近要用arduino开发自主借还书的demo，通过mqtt协议发布数据到服务器，然后用APP订阅相应Topic接收数据，做相应处理。第一步先是搭建mqtt服务器，现在开源mqtt的broker比较多，最后还是选择了Apollo。当然如果不想自己搭建也可以用相应平台，比如阿里云的消息队列中有mqtt，以及物联网平台onenet等等（但是用他们要设置各种key和id，我试了能够连接，但publish始终不行，不知道是哪里设置错了）</p>
+<h2 id="搭建MQTT服务器"><a href="#搭建MQTT服务器" class="headerlink" title="搭建MQTT服务器"></a>搭建MQTT服务器</h2><ol>
 <li>下载apollo<br>下载地址<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="external">http://activemq.apache.org/apollo/download.html</a></li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/5734256-9b44ff3349e31a8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
