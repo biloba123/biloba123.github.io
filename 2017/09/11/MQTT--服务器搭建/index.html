@@ -95,17 +95,30 @@
 
 
 
-<meta name="description" content="My first blog.">
+<meta name="description" content="MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。  MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2017/09/11/test/index.html">
+<meta property="og:title" content="MQTT--服务器搭建">
+<meta property="og:url" content="http://yoursite.com/2017/09/11/MQTT--服务器搭建/index.html">
 <meta property="og:site_name" content="这儿有一只企鹅">
-<meta property="og:description" content="My first blog.">
+<meta property="og:description" content="MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。  MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-11T05:12:45.827Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-9b44ff3349e31a8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-def7eb80037fd3a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-dd813f6c408be1d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-b2041e3931f73894.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-e7a96d437397014d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-c99d2e1f2d3dbee2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-238a00bc466140ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-208a733a18eaf406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-56a51da0372bed86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-f4e4118286f27b51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-c76509ece73e5c50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-ea1235a621a6aa33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-11T09:11:15.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
-<meta name="twitter:description" content="My first blog.">
+<meta name="twitter:title" content="MQTT--服务器搭建">
+<meta name="twitter:description" content="MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。  MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5734256-9b44ff3349e31a8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -135,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/11/test/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/11/MQTT--服务器搭建/"/>
 
 
 
 
 
-  <title>test | 这儿有一只企鹅</title>
+  <title>MQTT--服务器搭建 | 这儿有一只企鹅</title>
   
 
 
@@ -268,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/MQTT--服务器搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吕晴阳">
@@ -285,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test</h1>
+          <h1 class="post-title" itemprop="name headline">MQTT--服务器搭建</h1>
         
 
         <div class="post-meta">
@@ -297,7 +310,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T13:08:40+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T17:09:39+08:00">
                 2017-09-11
               </time>
             
@@ -335,7 +348,51 @@
       
 
       
-        <h2 id="My-first-blog"><a href="#My-first-blog" class="headerlink" title="My first blog."></a>My first blog.</h2>
+        <p>MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。</p>
+<blockquote>
+<p>MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M2M）或“物联网”世界的理想选择，以及带宽和电池电量非常高的移动应用。</p>
+<p>##前言<br>最近要用arduino开发自主借还书的demo，通过mqtt协议发布数据到服务器，然后用APP订阅相应Topic接收数据，做相应处理。第一步先是搭建mqtt服务器，现在开源mqtt的broker比较多，最后还是选择了Apollo。当然如果不想自己搭建也可以用相应平台，比如阿里云的消息队列中有mqtt，以及物联网平台onenet等等（但是用他们要设置各种key和id，我试了能够连接，但publish始终不行，不知道是哪里设置错了）</p>
+</blockquote>
+<p>##搭建MQTT服务器</p>
+<ol>
+<li>下载apollo<br>下载地址<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="external">http://activemq.apache.org/apollo/download.html</a></li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-9b44ff3349e31a8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol>
+<li>解压得到下面这些文件</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-def7eb80037fd3a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>bin下包含apollo和apollo.cmd两个文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-dd813f6c408be1d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol>
+<li>打开cmd进入到bin目录下，输入<br><strong>apollo.cmd create mybroker</strong><br>mybroker是服务器名字任意，服务器实例包含了所有的配置，运行时数据等，并且和一个服务器进程关联。（注意：这里需要java环境，没得要下载jdk，并配置环境变量）</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-b2041e3931f73894.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>完成后会多出一个mybroker文件夹</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-e7a96d437397014d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>其中etc中包含相关配置文件，apollo.xml是配置服务器信息的文件，users.properties文件包含连接MQTT服务器时用到的用户名和密码，后面登录网页会介绍，可以修改原始的admin=password，可以接着换行添加新的用户名密码。</p>
+<ol>
+<li><p>打开mybroker的bin目录，cmd进入到bin目录下，输入<br><strong>apollo-broker.cmd run</strong><br>开始运行，关闭cmd后会停止。或者可以install并run apollo-broker-service，让它长期在后台运行<br><img src="http://upload-images.jianshu.io/upload_images/5734256-c99d2e1f2d3dbee2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>在浏览器中输入<a href="http://127.0.0.1:61680/" target="_blank" rel="external">http://127.0.0.1:61680/</a>或<a href="https://127.0.0.1:61681/" target="_blank" rel="external">https://127.0.0.1:61681/</a>进入web管理页面，输入默认admin，password</p>
+</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-238a00bc466140ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>队列和发布的Topic</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-208a733a18eaf406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>连上的设备</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-56a51da0372bed86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>配置页面<br><img src="http://upload-images.jianshu.io/upload_images/5734256-f4e4118286f27b51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol>
+<li>很多教程说到上面就没了，然后你试着用连接发现根本连不上，其实打开apollo.xml仔细看你会发现少配置了一个选项导致的，可以直接在web页面改</li>
+</ol>
+<p>这两处取消注释就可以连接上了，修改后保存会重新载入配置文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-c76509ece73e5c50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol>
+<li>其他<br>在apollo.xml中</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-ea1235a621a6aa33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>上面两行是web管理登入链接，下面第一个是tcp方式连接是端口，可以自行更改，比如一般默认1883端口</p>
+
       
     </div>
     
@@ -359,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/09/11/MQTT--NodeMCU及MQTT接发消息体验/" rel="next" title="MQTT--NodeMCU及MQTT接发消息体验">
+                <i class="fa fa-chevron-left"></i> MQTT--NodeMCU及MQTT接发消息体验
               </a>
             
           </div>
@@ -419,17 +476,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -476,22 +524,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My-first-blog"><span class="nav-number">1.</span> <span class="nav-text">My first blog.</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
