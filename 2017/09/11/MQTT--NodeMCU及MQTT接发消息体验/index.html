@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Arduino,MQTT,NodeMCU," />
 
 
 
@@ -95,12 +95,13 @@
 
 
 
-<meta name="description" content="使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章http://www.jianshu.com/p/e11a47f1e53c 这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息 NodeMCU1. ESP8266介绍介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行 具有以下特点：  超小尺">
+<meta name="description" content="使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章http://www.jianshu.com/p/e11a47f1e53c 这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息 NodeMCU1. ESP8266介绍介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行">
+<meta name="keywords" content="Arduino,MQTT,NodeMCU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MQTT--NodeMCU及MQTT接发消息体验">
 <meta property="og:url" content="http://yoursite.com/2017/09/11/MQTT--NodeMCU及MQTT接发消息体验/index.html">
 <meta property="og:site_name" content="这儿有一只企鹅">
-<meta property="og:description" content="使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章http://www.jianshu.com/p/e11a47f1e53c 这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息 NodeMCU1. ESP8266介绍介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行 具有以下特点：  超小尺">
+<meta property="og:description" content="使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章http://www.jianshu.com/p/e11a47f1e53c 这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息 NodeMCU1. ESP8266介绍介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-f76e3ee2bd0a2c78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-b146c6aeacefa406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -119,10 +120,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-42acf9547f5dbcba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-45583bdf40140037.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-e2519a594b7b13df.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/440">
-<meta property="og:updated_time" content="2017-09-11T09:22:17.534Z">
+<meta property="og:updated_time" content="2017-09-11T10:59:55.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MQTT--NodeMCU及MQTT接发消息体验">
-<meta name="twitter:description" content="使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章http://www.jianshu.com/p/e11a47f1e53c 这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息 NodeMCU1. ESP8266介绍介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行 具有以下特点：  超小尺">
+<meta name="twitter:description" content="使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章http://www.jianshu.com/p/e11a47f1e53c 这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息 NodeMCU1. ESP8266介绍介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5734256-f76e3ee2bd0a2c78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -225,7 +226,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -235,11 +236,21 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -326,6 +337,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arduino/" itemprop="url" rel="index">
+                    <span itemprop="name">Arduino</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -356,6 +389,7 @@
         <p>使用MQTT先要有一个MQTT服务器，具体如何搭建可以看上一篇文章<a href="http://www.jianshu.com/p/e11a47f1e53c" target="_blank" rel="external">http://www.jianshu.com/p/e11a47f1e53c</a></p>
 <p>这一篇主要讲下NodeMCU的使用，以及MQTT介绍和如何接发消息</p>
 <h2 id="NodeMCU"><a href="#NodeMCU" class="headerlink" title="NodeMCU"></a>NodeMCU</h2><h3 id="1-ESP8266介绍"><a href="#1-ESP8266介绍" class="headerlink" title="1. ESP8266介绍"></a>1. ESP8266介绍</h3><p>介绍NodeMCU前需要先了解ESP8266，它是一个完整自称体系的WiFi网络解决方案，能独立运行也可为从部件连接单片机运行</p>
+<a id="more"></a>
 <p>具有以下特点：</p>
 <ul>
 <li>超小尺寸</li>
@@ -440,6 +474,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Arduino/" rel="tag"># Arduino</a>
+          
+            <a href="/tags/MQTT/" rel="tag"># MQTT</a>
+          
+            <a href="/tags/NodeMCU/" rel="tag"># NodeMCU</a>
+          
+        </div>
       
 
       
@@ -536,7 +580,7 @@
           
             <div class="site-state-item site-state-posts">
             
-              <a href="/archives/">
+              <a href="/archives">
             
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
@@ -545,7 +589,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>

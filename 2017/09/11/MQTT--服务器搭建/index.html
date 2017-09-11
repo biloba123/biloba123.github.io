@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Arduino,MQTT," />
 
 
 
@@ -96,6 +96,7 @@
 
 
 <meta name="description" content="MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。  MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M">
+<meta name="keywords" content="Arduino,MQTT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MQTT--服务器搭建">
 <meta property="og:url" content="http://yoursite.com/2017/09/11/MQTT--服务器搭建/index.html">
@@ -114,7 +115,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-f4e4118286f27b51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-c76509ece73e5c50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-ea1235a621a6aa33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-11T09:19:50.858Z">
+<meta property="og:updated_time" content="2017-09-11T10:59:33.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MQTT--服务器搭建">
 <meta name="twitter:description" content="MQTT由IBM的Andy Stanford-Clark博士和Arcom的Arlen Nipper（现为Eurotech）于1999年发明。  MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M">
@@ -220,7 +221,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -230,11 +231,21 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -321,6 +332,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arduino/" itemprop="url" rel="index">
+                    <span itemprop="name">Arduino</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -352,6 +385,7 @@
 <blockquote>
 <p>MQTT代表MQ遥测传输。它是针对受限设备和低带宽，高延迟或不可靠网络设计的发布/订阅，非常简单和轻便的消息传递协议。设计原则是尽量减少网络带宽和设备资源需求，同时还要确保可靠性和一定程度的交付保证。这些原则还可以使协议成为连接设备新兴的“机器对机器”（M2M）或“物联网”世界的理想选择，以及带宽和电池电量非常高的移动应用。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近要用arduino开发自主借还书的demo，通过mqtt协议发布数据到服务器，然后用APP订阅相应Topic接收数据，做相应处理。第一步先是搭建mqtt服务器，现在开源mqtt的broker比较多，最后还是选择了Apollo。当然如果不想自己搭建也可以用相应平台，比如阿里云的消息队列中有mqtt，以及物联网平台onenet等等（但是用他们要设置各种key和id，我试了能够连接，但publish始终不行，不知道是哪里设置错了）</p>
 <h2 id="搭建MQTT服务器"><a href="#搭建MQTT服务器" class="headerlink" title="搭建MQTT服务器"></a>搭建MQTT服务器</h2><ol>
 <li>下载apollo<br>下载地址<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="external">http://activemq.apache.org/apollo/download.html</a></li>
@@ -405,6 +439,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Arduino/" rel="tag"># Arduino</a>
+          
+            <a href="/tags/MQTT/" rel="tag"># MQTT</a>
+          
+        </div>
       
 
       
@@ -501,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
             
-              <a href="/archives/">
+              <a href="/archives">
             
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
@@ -510,7 +552,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
