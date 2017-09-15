@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Git,Github," />
 
 
 
@@ -97,16 +97,29 @@
 
 
 
-<meta name="description" content="走过的人说树枝长了，走过的人说树枝在长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吕晴阳在这瞎写">
-<meta property="og:url" content="http://yoursite.com/tags/Git/index.html">
+<meta name="description" content="SSH key配置为了在使用github过程中重复输入用户名，密码，通常需要配置生成ssh key，并把它添加到github上，使得远程命令时github能识别我们的机器，并直接给与授权。首先在本机生成一个ssh key1ssh-keygen -t rsa -b 4096 -C &amp;quot;XXXX@example.com&amp;quot;     #邮箱用github注册时的邮箱">
+<meta name="keywords" content="Git,Github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一步一步来，记全Github命令和用法">
+<meta property="og:url" content="http://yoursite.com/2017/09/15/一步一步来，记全Github命令和用法/index.html">
 <meta property="og:site_name" content="吕晴阳在这瞎写">
-<meta property="og:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta property="og:description" content="SSH key配置为了在使用github过程中重复输入用户名，密码，通常需要配置生成ssh key，并把它添加到github上，使得远程命令时github能识别我们的机器，并直接给与授权。首先在本机生成一个ssh key1ssh-keygen -t rsa -b 4096 -C &amp;quot;XXXX@example.com&amp;quot;     #邮箱用github注册时的邮箱">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-21370905c24e0653.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-22d53f274a0b7629.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-685b69ab2ed7f850.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-3cdca95eb7242c0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-0f812203f07c2d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-5a4a0b8527642e2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-64496851421da7e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-84bbc51f8df730bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-0cf58c100668bb52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-c6d5c8bb4836910c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-15T08:15:04.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吕晴阳在这瞎写">
-<meta name="twitter:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta name="twitter:title" content="一步一步来，记全Github命令和用法">
+<meta name="twitter:description" content="SSH key配置为了在使用github过程中重复输入用户名，密码，通常需要配置生成ssh key，并把它添加到github上，使得远程命令时github能识别我们的机器，并直接给与授权。首先在本机生成一个ssh key1ssh-keygen -t rsa -b 4096 -C &amp;quot;XXXX@example.com&amp;quot;     #邮箱用github注册时的邮箱">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5734256-21370905c24e0653.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Git/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/15/一步一步来，记全Github命令和用法/"/>
 
 
 
 
 
-  <title>标签: Git | 吕晴阳在这瞎写</title>
+  <title>一步一步来，记全Github命令和用法 | 吕晴阳在这瞎写</title>
   
 
 
@@ -180,7 +193,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -318,82 +331,263 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Git<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/一步一步来，记全Github命令和用法/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳在这瞎写">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/09/15/一步一步来，记全Github命令和用法/" itemprop="url">
-              
-                <span itemprop="name">一步一步来，记全Github命令和用法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">一步一步来，记全Github命令和用法</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-15T16:13:27+08:00"
-              content="2017-09-15" >
-          09-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T16:13:27+08:00">
+                2017-09-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/15/一步一步来，记全Github命令和用法/" class="leancloud_visitors" data-flag-title="一步一步来，记全Github命令和用法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/14/一步一步来，记全Git命令和用法/" itemprop="url">
-              
-                <span itemprop="name">一步一步来，记全Git命令和用法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-14T17:18:08+08:00"
-              content="2017-09-14" >
-          09-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h2 id="SSH-key配置"><a href="#SSH-key配置" class="headerlink" title="SSH key配置"></a>SSH key配置</h2><p>为了在使用github过程中重复输入用户名，密码，通常需要配置生成ssh key，并把它添加到github上，使得远程命令时github能识别我们的机器，并直接给与授权。<br>首先在本机生成一个ssh key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -b 4096 -C &quot;XXXX@example.com&quot;     #邮箱用github注册时的邮箱</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-21370905c24e0653.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>会问ssh key存放在哪里，默认路径为”/Users/用户名/.ssh”目录，直接回车<br>然后会有两个提示要求输入密码，直接回车，就没有密码，这样就生成了id_rsa和id_rsa.pub文件，存放了ssh key，通过它就可以直接访问github不需要任何密码。<br>复制id_rsa.pub的内容，到你的github账号，点开setting，选择”SSH Keys”,点”New SSH key”,将生成的key绑定上去</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-22d53f274a0b7629.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-685b69ab2ed7f850.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>通过下面命令测试是否添加成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-3cdca95eb7242c0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>输出以上信息说明操作成功</p>
+<h2 id="项目托管–git-remote"><a href="#项目托管–git-remote" class="headerlink" title="项目托管–git remote"></a>项目托管–git remote</h2><p>比如本地有个创建好的AutoBR的项目，想把它托管到github上。那第一步需要在github上创建一个仓库</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-0f812203f07c2d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>获取它的地址：git@github.com:biloba123/AutoBR.git，注意地址有两种，一种https形式，另一种ssh格式，我们用ssh这样就不用输密码</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-5a4a0b8527642e2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>然后将本地项目和该仓库关联起来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:biloba123/AutoBR.git</div></pre></td></tr></table></figure></p>
+<p>这样就向本地仓库添加了一个名为origin，地址是git@github.com:biloba123/AutoBR.git的远程仓库，通过” git remote -v “来查看该项目的远程仓库（一个本地仓库可以和多个远程仓库相关联）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-64496851421da7e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="将项目推送到远程仓库–git-push"><a href="#将项目推送到远程仓库–git-push" class="headerlink" title="将项目推送到远程仓库–git push"></a>将项目推送到远程仓库–git push</h2><p>关联后，就可以和远程仓库进行数据同步，同步前想把代码提交git commit,推送用到的命令是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push  远程仓库名  本地分支:远程分支</div></pre></td></tr></table></figure></p>
+<p>例如将本地master同步到origin的master分支上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git push origin master:master</div><div class="line"></div><div class="line">#当本地分支和远程一样时也可只写一个</div><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
+<p>删除远程分支，例如删除origin的net分支用下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :net</div></pre></td></tr></table></figure></p>
+<h2 id="更新最新代码–git-pull"><a href="#更新最新代码–git-pull" class="headerlink" title="更新最新代码–git pull"></a>更新最新代码–git pull</h2><p>直接git push把代码推送到github上并不是很好的做法，比如你和别人协作时你的代码并不是最新的，直接同步会覆盖覆盖最新代码，上面推送时就有问题</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-84bbc51f8df730bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>因为远程仓库已经有一些文件，本地项目并没和远程合并，提交被拒绝。首先应该用git pull从github将最新的代码更新到本地，并确保合并成功，如果有冲突，先解决再git push</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-0cf58c100668bb52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>但是又出现了 fatal: refusing to merge unrelated histories ，这是git 2.9后做了一些更改，在第一次git pull会出问题，用下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin master --allow-unrelated-histories</div></pre></td></tr></table></figure></p>
+<p>输入合并信息，在git push就可以了</p>
+<h2 id="git-ignore忽略文件"><a href="#git-ignore忽略文件" class="headerlink" title="git ignore忽略文件"></a>git ignore忽略文件</h2><p>有些文件例如apk文件，本机相关配置文件，不需要提交到远程仓库，那就把它们添加到.gitignore文件中</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-c6d5c8bb4836910c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章对你有帮助，给我些鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吕晴阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="吕晴阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+            <a href="/tags/Github/" rel="tag"># Github</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/14/一步一步来，记全Git命令和用法/" rel="next" title="一步一步来，记全Git命令和用法">
+                <i class="fa fa-chevron-left"></i> 一步一步来，记全Git命令和用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -401,6 +595,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -421,8 +621,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -520,6 +729,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-key配置"><span class="nav-number">1.</span> <span class="nav-text">SSH key配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目托管–git-remote"><span class="nav-number">2.</span> <span class="nav-text">项目托管–git remote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将项目推送到远程仓库–git-push"><span class="nav-number">3.</span> <span class="nav-text">将项目推送到远程仓库–git push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新最新代码–git-pull"><span class="nav-number">4.</span> <span class="nav-text">更新最新代码–git pull</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-ignore忽略文件"><span class="nav-number">5.</span> <span class="nav-text">git ignore忽略文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -647,6 +872,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -672,6 +901,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2144148"></script>
+      <!-- UY END -->
     
   
 
