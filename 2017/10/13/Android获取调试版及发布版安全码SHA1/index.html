@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="keystore,sha1," />
 
 
 
@@ -97,16 +97,22 @@
 
 
 
-<meta name="description" content="走过的人说树枝长了，走过的人说树枝在长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吕晴阳在这瞎写">
-<meta property="og:url" content="http://yoursite.com/tags/Github/index.html">
+<meta name="description" content="签名文件签名文件keystore一般有两种：jks后缀或者keystore后缀，Android Studio中创建的为jks后缀，keytool创建的为keystore后缀，两种文件均可用于APP打包。 开发版SHA1：是指在开发调试时，从Android Studio或者Eclipse中直接运行的APP在打包时使用了开发工具默认的开发版（debug）签名文件，开发版签名文件对应有唯一的SHA1。">
+<meta name="keywords" content="keystore,sha1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android获取调试版及发布版安全码SHA1">
+<meta property="og:url" content="http://yoursite.com/2017/10/13/Android获取调试版及发布版安全码SHA1/index.html">
 <meta property="og:site_name" content="吕晴阳在这瞎写">
-<meta property="og:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta property="og:description" content="签名文件签名文件keystore一般有两种：jks后缀或者keystore后缀，Android Studio中创建的为jks后缀，keytool创建的为keystore后缀，两种文件均可用于APP打包。 开发版SHA1：是指在开发调试时，从Android Studio或者Eclipse中直接运行的APP在打包时使用了开发工具默认的开发版（debug）签名文件，开发版签名文件对应有唯一的SHA1。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-5a13ca3fd7b716bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-a6d06b1baa4e2462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-e0d112f97fbb00d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-10-13T12:22:19.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吕晴阳在这瞎写">
-<meta name="twitter:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta name="twitter:title" content="Android获取调试版及发布版安全码SHA1">
+<meta name="twitter:description" content="签名文件签名文件keystore一般有两种：jks后缀或者keystore后缀，Android Studio中创建的为jks后缀，keytool创建的为keystore后缀，两种文件均可用于APP打包。 开发版SHA1：是指在开发调试时，从Android Studio或者Eclipse中直接运行的APP在打包时使用了开发工具默认的开发版（debug）签名文件，开发版签名文件对应有唯一的SHA1。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5734256-5a13ca3fd7b716bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Github/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/13/Android获取调试版及发布版安全码SHA1/"/>
 
 
 
 
 
-  <title>标签: Github | 吕晴阳在这瞎写</title>
+  <title>Android获取调试版及发布版安全码SHA1 | 吕晴阳在这瞎写</title>
   
 
 
@@ -180,7 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -318,54 +324,250 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Github<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/Android获取调试版及发布版安全码SHA1/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳在这瞎写">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/09/15/一步一步来，记全Github命令和用法/" itemprop="url">
-              
-                <span itemprop="name">一步一步来，记全Github命令和用法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Android获取调试版及发布版安全码SHA1</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-15T16:13:27+08:00"
-              content="2017-09-15" >
-          09-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T20:20:43+08:00">
+                2017-10-13
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/13/Android获取调试版及发布版安全码SHA1/" class="leancloud_visitors" data-flag-title="Android获取调试版及发布版安全码SHA1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="签名文件"><a href="#签名文件" class="headerlink" title="签名文件"></a>签名文件</h2><p>签名文件keystore一般有两种：jks后缀或者keystore后缀，Android Studio中创建的为jks后缀，keytool创建的为keystore后缀，两种文件均可用于APP打包。</p>
+<p><strong>开发版SHA1：</strong>是指在开发调试时，从Android Studio或者Eclipse中直接运行的APP在打包时使用了开发工具默认的开发版（debug）签名文件，开发版签名文件对应有唯一的SHA1。</p>
+<p><strong>发布版SHA1：</strong>是指在提交测试或发布时，APP签名打包过程中选择的指定签名文件，一般此签名文件为开发者或者开发团队持有，与具体的开发工具无关，发布版签名文件同样也对应有唯一的SHA1。</p>
+<a id="more"></a>
+<h2 id="Android获取SHA1"><a href="#Android获取SHA1" class="headerlink" title="Android获取SHA1"></a>Android获取SHA1</h2><p>在AndroidStudio中的Terminal中使用keytool命令获取。</p>
+<h3 id="发布版SHA1"><a href="#发布版SHA1" class="headerlink" title="发布版SHA1"></a>发布版SHA1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -exportcert -list -v -alias &lt;your-key-name&gt; -keystore &lt;path-to-production-keystore&gt;</div></pre></td></tr></table></figure>
+<p><strong><your-key-name>：</your-key-name></strong>发布版签名文件中key的别名（非必需，如果在创建时没设别名可以去掉-alias <your-key-name>）<br><strong><path-to-production-keystore>：</path-to-production-keystore></strong>替换为自己发布版签名文件的完整路径</your-key-name></p>
+<p>例如：<br>keystore放在 C:\android_projects\biloba.jks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -exportcert -list -v -keystore C:\android_projects\biloba.jks</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-5a13ca3fd7b716bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>若为keystore类型的文件只用把后缀名换一下。</p>
+<h3 id="调试版SHA1"><a href="#调试版SHA1" class="headerlink" title="调试版SHA1"></a>调试版SHA1</h3><p>调试版keystore默认在 C:\User.android\debug.keystore（Windows下），<br>若为Mac和Linux，此路径应该为~/.android/debug.keystore<br><strong>keystore的密码默认为android</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-a6d06b1baa4e2462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>命令和上面一样，只不过把路径换成默认签名文件所在路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -exportcert -list -v -keystore C:\Users\23738\.android\debug.keystore</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-e0d112f97fbb00d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章对你有帮助，给我些鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吕晴阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="吕晴阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/keystore/" rel="tag"># keystore</a>
+          
+            <a href="/tags/sha1/" rel="tag"># sha1</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/11/Android平台MQTT使用并实现简单聊天室/" rel="next" title="Android平台MQTT使用并实现简单聊天室">
+                <i class="fa fa-chevron-left"></i> Android平台MQTT使用并实现简单聊天室
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -373,6 +575,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -393,8 +601,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -492,6 +709,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#签名文件"><span class="nav-number">1.</span> <span class="nav-text">签名文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android获取SHA1"><span class="nav-number">2.</span> <span class="nav-text">Android获取SHA1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发布版SHA1"><span class="nav-number">2.1.</span> <span class="nav-text">发布版SHA1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试版SHA1"><span class="nav-number">2.2.</span> <span class="nav-text">调试版SHA1</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -619,6 +852,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -644,6 +881,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2144148"></script>
+      <!-- UY END -->
     
   
 
