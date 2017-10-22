@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="自定义View,Picture," />
 
 
 
@@ -97,16 +97,23 @@
 
 
 
-<meta name="description" content="走过的人说树枝长了，走过的人说树枝在长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吕晴阳在这瞎写">
-<meta property="og:url" content="http://yoursite.com/archives/2017/09/index.html">
+<meta name="description" content="Picture是自定义view中一个实用的工具，对应Canvas中的drawPicture方法，当然除了这个外还有另外两个方法用于绘制Picture：  Picture自身的draw(Canvas canvas) PictureDrawable的draw(Canvas canvas)  下面会讨论三种方式的不同之处，首先来看下Picture的用途和主要方法">
+<meta name="keywords" content="自定义View,Picture">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Picture详解">
+<meta property="og:url" content="http://yoursite.com/2017/10/22/Android Picture详解/index.html">
 <meta property="og:site_name" content="吕晴阳在这瞎写">
-<meta property="og:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta property="og:description" content="Picture是自定义view中一个实用的工具，对应Canvas中的drawPicture方法，当然除了这个外还有另外两个方法用于绘制Picture：  Picture自身的draw(Canvas canvas) PictureDrawable的draw(Canvas canvas)  下面会讨论三种方式的不同之处，首先来看下Picture的用途和主要方法">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-277ca7d7f7346dc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-95816c004477db6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-b9b088a231758687.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-657cda9477915226.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-10-22T06:37:05.995Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吕晴阳在这瞎写">
-<meta name="twitter:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta name="twitter:title" content="Android Picture详解">
+<meta name="twitter:description" content="Picture是自定义view中一个实用的工具，对应Canvas中的drawPicture方法，当然除了这个外还有另外两个方法用于绘制Picture：  Picture自身的draw(Canvas canvas) PictureDrawable的draw(Canvas canvas)  下面会讨论三种方式的不同之处，首先来看下Picture的用途和主要方法">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5734256-277ca7d7f7346dc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/09/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/22/Android Picture详解/"/>
 
 
 
 
 
-  <title>归档 | 吕晴阳在这瞎写</title>
+  <title>Android Picture详解 | 吕晴阳在这瞎写</title>
   
 
 
@@ -180,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -318,296 +325,312 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/22/Android Picture详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳在这瞎写">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Android Picture详解</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-22T14:35:45+08:00">
+                2017-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/10/22/Android Picture详解/" class="leancloud_visitors" data-flag-title="Android Picture详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/15/一步一步来，记全Github命令和用法/" itemprop="url">
-              
-                <span itemprop="name">一步一步来，记全Github命令和用法</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-15T16:13:27+08:00"
-              content="2017-09-15" >
-          09-15
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/14/一步一步来，记全Git命令和用法/" itemprop="url">
-              
-                <span itemprop="name">一步一步来，记全Git命令和用法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-14T17:18:08+08:00"
-              content="2017-09-14" >
-          09-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/13/来一套不一样的Toast--自定义Toast/" itemprop="url">
-              
-                <span itemprop="name">来一套不一样的Toast--自定义Toast</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-13T22:04:44+08:00"
-              content="2017-09-13" >
-          09-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/13/Fragment中添加menu/" itemprop="url">
-              
-                <span itemprop="name">Fragment中添加menu</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-13T20:43:12+08:00"
-              content="2017-09-13" >
-          09-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>Picture是自定义view中一个实用的工具，对应Canvas中的drawPicture方法，当然除了这个外还有另外两个方法用于绘制Picture：</p>
+<ul>
+<li>Picture自身的draw(Canvas canvas)</li>
+<li>PictureDrawable的draw(Canvas canvas)</li>
+</ul>
+<p>下面会讨论三种方式的不同之处，首先来看下Picture的用途和主要方法</p>
+<a id="more"></a>
+<h2 id="Picture简介"><a href="#Picture简介" class="headerlink" title="Picture简介"></a>Picture简介</h2><p>Picture是用来干嘛的呢？官方参考是这样介绍的</p>
+<blockquote>
+<p>A Picture records drawing calls (via the canvas returned by beginRecording) and can then play them back into Canvas (via draw(Canvas) or drawPicture(Picture)). For most content (e.g. text, lines, rectangles), drawing a sequence from a picture can be faster than the equivalent API calls, since the picture performs its playback without incurring any method-call overhead.</p>
+</blockquote>
+<p>也就是说当调用Picture的beginRecording的方法后，会返回一个Canvas，在这上面绘制的各种内容会被录制下来，之后需要的时候，直接绘制Picture会比在绘制一遍各种内容快一些。通常当有些内容我们需要绘制多次时，可以先用它录制下来，之后直接把录制的Picture绘制出来就可以了</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Picture()</td>
+<td>构造方法</td>
+</tr>
+<tr>
+<td>Picture(Picture src)</td>
+<td>构造方法，在已有Picture基础上再进行录制</td>
+</tr>
+<tr>
+<td>public Canvas beginRecording (int width, int height)</td>
+<td>开始录制，在返回的Canvas上进行绘制</td>
+</tr>
+<tr>
+<td>public void endRecording ()</td>
+<td>结束录制</td>
+</tr>
+<tr>
+<td>public void draw (Canvas canvas)</td>
+<td>将Picture绘制到Canvas上</td>
+</tr>
+<tr>
+<td>public int getWidth ()</td>
+<td>获取宽度</td>
+</tr>
+<tr>
+<td>public int getHeight ()</td>
+<td>获取高度</td>
+</tr>
+</tbody>
+</table>
+<p>还有两个createFromStream、writeToStream在API 18已经被弃用。上面方法理解起来也容易，beginRecording和endRecording对应，开始和结束录制，在它们两个间进行绘制操作</p>
+<h2 id="三种不同绘制方法的使用和区别"><a href="#三种不同绘制方法的使用和区别" class="headerlink" title="三种不同绘制方法的使用和区别"></a>三种不同绘制方法的使用和区别</h2><p>录制的内容不会直接显示，只是存储起来，想要将Picture中的内容显示出来就需要手动调用=绘制方法，有3种方法：</p>
+<ol>
+<li>使用Picture提供的draw方法绘制</li>
+<li>使用Canvas提供的drawPicture方法绘制</li>
+<li>将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制</li>
+</ol>
+<p>下面来分别看看三种方法的使用。</p>
+<h3 id="Picture的draw方法"><a href="#Picture的draw方法" class="headerlink" title="Picture的draw方法"></a>Picture的draw方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    private Picture mPicture=new Picture();</div><div class="line"></div><div class="line"></div><div class="line">    public CanvasView(Context context, @Nullable AttributeSet attrs) &#123;</div><div class="line">        super(context, attrs);</div><div class="line">        mPaint=new Paint();</div><div class="line">        mPaint.setStrokeWidth(24);</div><div class="line">        mPaint.setStyle(Paint.Style.FILL);</div><div class="line">        mPaint.setStrokeCap(Paint.Cap.ROUND);</div><div class="line"></div><div class="line">        recording();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onDraw(Canvas canvas) &#123;</div><div class="line">        super.onDraw(canvas);</div><div class="line">        mPicture.draw(canvas);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void recording() &#123;</div><div class="line">        Canvas canvas=mPicture.beginRecording(400, 400);</div><div class="line">        canvas.drawPoint(0, 0, mPaint);</div><div class="line">        mPaint.setColor(Color.RED);</div><div class="line">        canvas.drawPoint(250, 250, mPaint);</div><div class="line">        mPaint.setColor(Color.BLUE);</div><div class="line">        canvas.drawPoint(500, 500, mPaint);</div><div class="line"></div><div class="line">        mPicture.endRecording();</div><div class="line">    &#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>我们分别绘制三个点(0, 0)、(250, 250)、(500, 500)，但是传入的宽高是400，那第三个点会怎样呢</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-277ca7d7f7346dc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>可以看到三个点都绘制出来了，说明传入的宽和高并不是限定画布绘制的范围，而是其相对大小（等下再具体解释），而且绘制时是将Picture的左上角和Canvas坐标轴对齐绘制<br>例如，将canvas坐标轴移到中心<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">    protected void onDraw(Canvas canvas) &#123;</div><div class="line">        super.onDraw(canvas);</div><div class="line">        canvas.translate(getWidth()/2f, getHeight()/2f);</div><div class="line">        mPicture.draw(canvas);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-95816c004477db6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>从上面得出，Picture的draw方法是将Picture不做任何变化原样绘制到画布上</p>
+<h3 id="Canvas的drawPicture方法"><a href="#Canvas的drawPicture方法" class="headerlink" title="Canvas的drawPicture方法"></a>Canvas的drawPicture方法</h3><p>这个方法有三种重载，一个参数的drawPicture(Picture picture)和Picture的draw方法效果相同，还有两个重载是通过RectF和Rect对Picture绘制进行一些控制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">    protected void onDraw(Canvas canvas) &#123;</div><div class="line">        super.onDraw(canvas);</div><div class="line">        canvas.drawPicture(mPicture, new RectF(0, 200, mPicture.getWidth(), 200+mPicture.getHeight()));</div><div class="line">        canvas.drawPicture(mPicture, new RectF(0, 0,mPicture.getWidth(), mPicture.getHeight()/2));</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-b9b088a231758687.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>可以看到第一次绘制的形状未变，只不过在y轴上上移了200px，第二次将高减为一般半，绘制出的Picture在y轴方向压缩了一半，也就是rect并不是对图形进行裁剪，而是缩小或放大，和Picture本身的width和height相对应。看源码更清楚：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * Draw the picture, stretched to fit into the dst rectangle.</div><div class="line">     */</div><div class="line">    public void drawPicture(@NonNull Picture picture, @NonNull RectF dst) &#123;</div><div class="line">        save();</div><div class="line">        translate(dst.left, dst.top);</div><div class="line">        if (picture.getWidth() &gt; 0 &amp;&amp; picture.getHeight() &gt; 0) &#123;</div><div class="line">            scale(dst.width() / picture.getWidth(), dst.height() / picture.getHeight());</div><div class="line">        &#125;</div><div class="line">        drawPicture(picture);</div><div class="line">        restore();</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="PictureDrawable的draw方法"><a href="#PictureDrawable的draw方法" class="headerlink" title="PictureDrawable的draw方法"></a>PictureDrawable的draw方法</h3><p>要控制在画布上的绘制区域，就需要使用PictureDrawable，设置bound<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 包装成为PictureDrawable</div><div class="line">PictureDrawable drawable = new PictureDrawable(mPicture);</div><div class="line">// 设置绘制区域</div><div class="line">drawable.setBounds(0,0,250,mPicture.getHeight());</div><div class="line">// 绘制</div><div class="line">drawable.draw(canvas);</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-657cda9477915226.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>可以看到绘制区域被限定在(0, 0,250, 400)范围内，而不像上面对Picture进行缩放，这里注意是限定绘制区域，而不是对Picture进行裁剪</p>
+<p>综上，</p>
+<ul>
+<li>一般并不使用Picture提供的draw方法，它在比较低版本的系统上绘制后可能会影响Canvas状态</li>
+<li>如果想对绘制位置和比例进行控制用Canvas提供的drawPicture方法绘制</li>
+<li>如果想设置绘制区域则使用PictureDrawable的draw方法</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/11/Android样式开发完全指南/" itemprop="url">
-              
-                <span itemprop="name">Android样式开发完全指南</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T21:58:28+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/11/MQTT--服务器搭建/" itemprop="url">
-              
-                <span itemprop="name">MQTT--服务器搭建</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T17:09:39+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/11/MQTT--NodeMCU及MQTT接发消息体验/" itemprop="url">
-              
-                <span itemprop="name">MQTT--NodeMCU及MQTT接发消息体验</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T12:32:55+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章对你有帮助，给我些鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吕晴阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="吕晴阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自定义View/" rel="tag"># 自定义View</a>
+          
+            <a href="/tags/Picture/" rel="tag"># Picture</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/22/WiFi开发（一）--WiFi开关与状态监听/" rel="next" title="WiFi开发（一）--WiFi开关与状态监听">
+                <i class="fa fa-chevron-left"></i> WiFi开发（一）--WiFi开关与状态监听
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -615,6 +638,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -635,8 +664,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -734,6 +772,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Picture简介"><span class="nav-number">1.</span> <span class="nav-text">Picture简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种不同绘制方法的使用和区别"><span class="nav-number">2.</span> <span class="nav-text">三种不同绘制方法的使用和区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Picture的draw方法"><span class="nav-number">2.1.</span> <span class="nav-text">Picture的draw方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas的drawPicture方法"><span class="nav-number">2.2.</span> <span class="nav-text">Canvas的drawPicture方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PictureDrawable的draw方法"><span class="nav-number">2.3.</span> <span class="nav-text">PictureDrawable的draw方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -861,6 +915,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -886,6 +944,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2144148"></script>
+      <!-- UY END -->
     
   
 

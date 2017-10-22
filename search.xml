@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android Picture详解]]></title>
+    <url>%2F2017%2F10%2F22%2FAndroid%20Picture%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[Picture是自定义view中一个实用的工具，对应Canvas中的drawPicture方法，当然除了这个外还有另外两个方法用于绘制Picture： Picture自身的draw(Canvas canvas) PictureDrawable的draw(Canvas canvas) 下面会讨论三种方式的不同之处，首先来看下Picture的用途和主要方法 Picture简介Picture是用来干嘛的呢？官方参考是这样介绍的 A Picture records drawing calls (via the canvas returned by beginRecording) and can then play them back into Canvas (via draw(Canvas) or drawPicture(Picture)). For most content (e.g. text, lines, rectangles), drawing a sequence from a picture can be faster than the equivalent API calls, since the picture performs its playback without incurring any method-call overhead. 也就是说当调用Picture的beginRecording的方法后，会返回一个Canvas，在这上面绘制的各种内容会被录制下来，之后需要的时候，直接绘制Picture会比在绘制一遍各种内容快一些。通常当有些内容我们需要绘制多次时，可以先用它录制下来，之后直接把录制的Picture绘制出来就可以了 方法 说明 Picture() 构造方法 Picture(Picture src) 构造方法，在已有Picture基础上再进行录制 public Canvas beginRecording (int width, int height) 开始录制，在返回的Canvas上进行绘制 public void endRecording () 结束录制 public void draw (Canvas canvas) 将Picture绘制到Canvas上 public int getWidth () 获取宽度 public int getHeight () 获取高度 还有两个createFromStream、writeToStream在API 18已经被弃用。上面方法理解起来也容易，beginRecording和endRecording对应，开始和结束录制，在它们两个间进行绘制操作 三种不同绘制方法的使用和区别录制的内容不会直接显示，只是存储起来，想要将Picture中的内容显示出来就需要手动调用=绘制方法，有3种方法： 使用Picture提供的draw方法绘制 使用Canvas提供的drawPicture方法绘制 将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制 下面来分别看看三种方法的使用。 Picture的draw方法12345678910111213141516171819202122232425262728293031... private Picture mPicture=new Picture(); public CanvasView(Context context, @Nullable AttributeSet attrs) &#123; super(context, attrs); mPaint=new Paint(); mPaint.setStrokeWidth(24); mPaint.setStyle(Paint.Style.FILL); mPaint.setStrokeCap(Paint.Cap.ROUND); recording(); &#125; @Override protected void onDraw(Canvas canvas) &#123; super.onDraw(canvas); mPicture.draw(canvas); &#125; private void recording() &#123; Canvas canvas=mPicture.beginRecording(400, 400); canvas.drawPoint(0, 0, mPaint); mPaint.setColor(Color.RED); canvas.drawPoint(250, 250, mPaint); mPaint.setColor(Color.BLUE); canvas.drawPoint(500, 500, mPaint); mPicture.endRecording(); &#125;... 我们分别绘制三个点(0, 0)、(250, 250)、(500, 500)，但是传入的宽高是400，那第三个点会怎样呢 可以看到三个点都绘制出来了，说明传入的宽和高并不是限定画布绘制的范围，而是其相对大小（等下再具体解释），而且绘制时是将Picture的左上角和Canvas坐标轴对齐绘制例如，将canvas坐标轴移到中心123456@Override protected void onDraw(Canvas canvas) &#123; super.onDraw(canvas); canvas.translate(getWidth()/2f, getHeight()/2f); mPicture.draw(canvas);&#125; 从上面得出，Picture的draw方法是将Picture不做任何变化原样绘制到画布上 Canvas的drawPicture方法这个方法有三种重载，一个参数的drawPicture(Picture picture)和Picture的draw方法效果相同，还有两个重载是通过RectF和Rect对Picture绘制进行一些控制123456@Override protected void onDraw(Canvas canvas) &#123; super.onDraw(canvas); canvas.drawPicture(mPicture, new RectF(0, 200, mPicture.getWidth(), 200+mPicture.getHeight())); canvas.drawPicture(mPicture, new RectF(0, 0,mPicture.getWidth(), mPicture.getHeight()/2)); &#125; 可以看到第一次绘制的形状未变，只不过在y轴上上移了200px，第二次将高减为一般半，绘制出的Picture在y轴方向压缩了一半，也就是rect并不是对图形进行裁剪，而是缩小或放大，和Picture本身的width和height相对应。看源码更清楚：123456789101112/** * Draw the picture, stretched to fit into the dst rectangle. */ public void drawPicture(@NonNull Picture picture, @NonNull RectF dst) &#123; save(); translate(dst.left, dst.top); if (picture.getWidth() &gt; 0 &amp;&amp; picture.getHeight() &gt; 0) &#123; scale(dst.width() / picture.getWidth(), dst.height() / picture.getHeight()); &#125; drawPicture(picture); restore(); &#125; PictureDrawable的draw方法要控制在画布上的绘制区域，就需要使用PictureDrawable，设置bound123456// 包装成为PictureDrawablePictureDrawable drawable = new PictureDrawable(mPicture);// 设置绘制区域drawable.setBounds(0,0,250,mPicture.getHeight());// 绘制drawable.draw(canvas); 可以看到绘制区域被限定在(0, 0,250, 400)范围内，而不像上面对Picture进行缩放，这里注意是限定绘制区域，而不是对Picture进行裁剪 综上， 一般并不使用Picture提供的draw方法，它在比较低版本的系统上绘制后可能会影响Canvas状态 如果想对绘制位置和比例进行控制用Canvas提供的drawPicture方法绘制 如果想设置绘制区域则使用PictureDrawable的draw方法]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>自定义View</tag>
+        <tag>Picture</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[WiFi开发（一）--WiFi开关与状态监听]]></title>
+    <url>%2F2017%2F10%2F22%2FWiFi%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89--WiFi%E5%BC%80%E5%85%B3%E4%B8%8E%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC%2F</url>
+    <content type="text"><![CDATA[之前开发了一个WiFi，热点相关的应用。因为对这方面也不熟悉，刚开始找资料看书，但看明白实现时，发现随着android版本更新，相关api有较大改动，之前的代码不能用。经过一番探索，最后实现出来了，现在把它记录下来，希望能给需要的人一些帮助。 首先来讲WiFi开发相关，那第一步肯定是如何来控制WiFi打开关闭状态，以及如何来监听其状态变化。 WiFi连接控制类–WiFiManager 从官网参考可以知道它以下几个作用： 获取配置好的网络，也就是之前连接过的WiFi； 对当前活动的WiFi网络建立新连接或断开，可以查询有关网络状态； 周围扫描到的接入点，对应类为ScanResult； 定义了在Wi-Fi状态改变后发出广播的intent action。 可以看出主要是用它来控制监听WiFi状态 打开关闭WiFi对WiFi进行控制要声明相关权限12&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt; 接着获取WifiManager12mWifiManager= (WifiManager) getApplicationContext() .getSystemService(Context.WIFI_SERVICE); 注意这里必须使用Application的上下文，那在fragment中获取的话通过getActivity().getApplicationContext()，因为碎片中无法直接获取Application Context 获取到WifiManager后就可以通过isWifiEnabled()判断是否打开，setWifiEnabled(boolean enabled)打开或关闭wifi，它的返回值说明操作结果，可能操作失败123456789//set wifi switch state swwifi.setChecked(mWifiManager.isWifiEnabled()); swwifi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() &#123; @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) &#123; mWifiManager.setWifiEnabled(isChecked); &#125; &#125;); 这里简单的通过个switch显示和控制开关状态 WiFi状态监听上面只是能在应用中控制wifi开关，但如果在外面wifi发生变化，应用内没监听的话，那相关显示就错误了 监听是通过WifiManager定义的一些action动态注册广播监听（只能动态注册）123456789101112131415161718192021222324252627282930313233343536//注册接收器 private void registerBroadcast() &#123; IntentFilter filter = new IntentFilter(); filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION); registerReceiver(new BroadcastReceiver() &#123; @Override public void onReceive(Context context, Intent intent) &#123; if (intent.getAction()== WifiManager.WIFI_STATE_CHANGED_ACTION) &#123; switch (intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, WIFI_STATE_UNKNOWN)) &#123; case WIFI_STATE_DISABLED:&#123; Toast.makeText(context, &quot;WiFi disabled&quot;, Toast.LENGTH_SHORT).show(); swwifi.setChecked(false); break; &#125; case WIFI_STATE_DISABLING:&#123; Toast.makeText(context, &quot;WiFi disabling&quot;, Toast.LENGTH_SHORT).show(); break; &#125; case WIFI_STATE_ENABLED :&#123; Toast.makeText(context, &quot;WiFi enabled&quot;, Toast.LENGTH_SHORT).show(); swwifi.setChecked(true); break; &#125; case WIFI_STATE_ENABLING:&#123; Toast.makeText(context, &quot;WiFi enabling&quot;, Toast.LENGTH_SHORT).show(); break; &#125; case WIFI_STATE_UNKNOWN:&#123; Toast.makeText(context, &quot;WiFi state unknown&quot;, Toast.LENGTH_SHORT).show(); break; &#125; &#125; &#125; &#125; &#125;, filter); &#125; 其他一些状态也基本是通过动态注册广播监听 上面有一点，刚打开注册广播时立即收到一条当前状态的广播]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>WiFi</tag>
+        <tag>Hotspot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android获取调试版及发布版安全码SHA1]]></title>
     <url>%2F2017%2F10%2F13%2FAndroid%E8%8E%B7%E5%8F%96%E8%B0%83%E8%AF%95%E7%89%88%E5%8F%8A%E5%8F%91%E5%B8%83%E7%89%88%E5%AE%89%E5%85%A8%E7%A0%81SHA1%2F</url>
     <content type="text"><![CDATA[签名文件签名文件keystore一般有两种：jks后缀或者keystore后缀，Android Studio中创建的为jks后缀，keytool创建的为keystore后缀，两种文件均可用于APP打包。 开发版SHA1：是指在开发调试时，从Android Studio或者Eclipse中直接运行的APP在打包时使用了开发工具默认的开发版（debug）签名文件，开发版签名文件对应有唯一的SHA1。 发布版SHA1：是指在提交测试或发布时，APP签名打包过程中选择的指定签名文件，一般此签名文件为开发者或者开发团队持有，与具体的开发工具无关，发布版签名文件同样也对应有唯一的SHA1。 Android获取SHA1在AndroidStudio中的Terminal中使用keytool命令获取。 发布版SHA11keytool -exportcert -list -v -alias &lt;your-key-name&gt; -keystore &lt;path-to-production-keystore&gt; ：发布版签名文件中key的别名（非必需，如果在创建时没设别名可以去掉-alias ）：替换为自己发布版签名文件的完整路径 例如：keystore放在 C:\android_projects\biloba.jks1keytool -exportcert -list -v -keystore C:\android_projects\biloba.jks 若为keystore类型的文件只用把后缀名换一下。 调试版SHA1调试版keystore默认在 C:\User.android\debug.keystore（Windows下），若为Mac和Linux，此路径应该为~/.android/debug.keystorekeystore的密码默认为android 命令和上面一样，只不过把路径换成默认签名文件所在路径1keytool -exportcert -list -v -keystore C:\Users\23738\.android\debug.keystore]]></content>
@@ -101,8 +125,8 @@
         <category>Arduino</category>
       </categories>
       <tags>
-        <tag>MQTT</tag>
         <tag>Arduino</tag>
+        <tag>MQTT</tag>
       </tags>
   </entry>
   <entry>
@@ -113,8 +137,8 @@
         <category>Arduino</category>
       </categories>
       <tags>
-        <tag>MQTT</tag>
         <tag>Arduino</tag>
+        <tag>MQTT</tag>
         <tag>NodeMCU</tag>
       </tags>
   </entry>
