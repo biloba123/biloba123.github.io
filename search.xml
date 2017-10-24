@@ -136,8 +136,8 @@
         <category>Arduino</category>
       </categories>
       <tags>
-        <tag>MQTT</tag>
         <tag>Arduino</tag>
+        <tag>MQTT</tag>
       </tags>
   </entry>
   <entry>
@@ -148,8 +148,8 @@
         <category>Arduino</category>
       </categories>
       <tags>
-        <tag>MQTT</tag>
         <tag>Arduino</tag>
+        <tag>MQTT</tag>
         <tag>NodeMCU</tag>
       </tags>
   </entry>
