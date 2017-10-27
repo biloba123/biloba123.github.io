@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="自定义View," />
 
 
 
@@ -97,17 +97,27 @@
 
 
 
-<meta name="description" content="走过的人说树枝长了，走过的人说树枝在长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="自定义View是绘制文本有三类方法123456789101112131415// 第一类public void drawText (String text, float x, float y, Paint paint)public void drawText (String text, int start, int end, float x, float y, Paint paint)public">
+<meta name="keywords" content="自定义View">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Canvas的drawText()和文字居中方案">
+<meta property="og:url" content="http://yoursite.com/2017/10/27/Android Canvas的drawText()和文字居中方案/index.html">
 <meta property="og:site_name" content="吕晴阳">
-<meta property="og:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta property="og:description" content="自定义View是绘制文本有三类方法123456789101112131415// 第一类public void drawText (String text, float x, float y, Paint paint)public void drawText (String text, int start, int end, float x, float y, Paint paint)public">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-11T10:34:50.069Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-034ce9861f52b1d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-a6c0fc7234bbf914.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-aa80878af37cf346.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-512082b482008a3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-64f218ab8594bb3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-1b709c4384247865.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-8bf933b5d441a516.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5734256-3c9cf9b18ff4e8db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-10-27T13:31:44.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta name="twitter:title" content="Android Canvas的drawText()和文字居中方案">
+<meta name="twitter:description" content="自定义View是绘制文本有三类方法123456789101112131415// 第一类public void drawText (String text, float x, float y, Paint paint)public void drawText (String text, int start, int end, float x, float y, Paint paint)public">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5734256-034ce9861f52b1d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -137,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/27/Android Canvas的drawText()和文字居中方案/"/>
 
 
 
 
 
-  <title>tags | 吕晴阳</title>
+  <title>Android Canvas的drawText()和文字居中方案 | 吕晴阳</title>
   
 
 
@@ -321,40 +331,259 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/27/Android Canvas的drawText()和文字居中方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 21 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Android-Studio/" style="font-size: 12px; color: #ccc">Android Studio</a> <a href="/tags/Arduino/" style="font-size: 21px; color: #6f6f6f">Arduino</a> <a href="/tags/Fragment/" style="font-size: 12px; color: #ccc">Fragment</a> <a href="/tags/Fragmnet/" style="font-size: 12px; color: #ccc">Fragmnet</a> <a href="/tags/Git/" style="font-size: 21px; color: #6f6f6f">Git</a> <a href="/tags/Github/" style="font-size: 12px; color: #ccc">Github</a> <a href="/tags/Hotspot/" style="font-size: 12px; color: #ccc">Hotspot</a> <a href="/tags/IM/" style="font-size: 12px; color: #ccc">IM</a> <a href="/tags/Java基础/" style="font-size: 12px; color: #ccc">Java基础</a> <a href="/tags/MQTT/" style="font-size: 30px; color: #111">MQTT</a> <a href="/tags/NodeMCU/" style="font-size: 12px; color: #ccc">NodeMCU</a> <a href="/tags/Picture/" style="font-size: 12px; color: #ccc">Picture</a> <a href="/tags/Toast/" style="font-size: 12px; color: #ccc">Toast</a> <a href="/tags/View/" style="font-size: 12px; color: #ccc">View</a> <a href="/tags/WiFi/" style="font-size: 12px; color: #ccc">WiFi</a> <a href="/tags/drawable/" style="font-size: 12px; color: #ccc">drawable</a> <a href="/tags/keystore/" style="font-size: 12px; color: #ccc">keystore</a> <a href="/tags/sha1/" style="font-size: 12px; color: #ccc">sha1</a> <a href="/tags/shape/" style="font-size: 12px; color: #ccc">shape</a> <a href="/tags/tab/" style="font-size: 12px; color: #ccc">tab</a> <a href="/tags/自定义View/" style="font-size: 21px; color: #6f6f6f">自定义View</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Android Canvas的drawText()和文字居中方案</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T21:29:52+08:00">
+                2017-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/27/Android Canvas的drawText()和文字居中方案/" class="leancloud_visitors" data-flag-title="Android Canvas的drawText()和文字居中方案">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>自定义View是绘制文本有三类方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 第一类</div><div class="line">public void drawText (String text, float x, float y, Paint paint)</div><div class="line">public void drawText (String text, int start, int end, float x, float y, Paint paint)</div><div class="line">public void drawText (CharSequence text, int start, int end, float x, float y, Paint paint)</div><div class="line">public void drawText (char[] text, int index, int count, float x, float y, Paint paint)</div><div class="line"></div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line">// 第二类</div><div class="line">public void drawPosText (String text, float[] pos, Paint paint)</div><div class="line">public void drawPosText (char[] text, int index, int count, float[] pos, Paint paint)</div><div class="line"></div><div class="line">// 第三类</div><div class="line">public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)</div><div class="line">public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)</div></pre></td></tr></table></figure></p>
+<p>其中drawText()最常用，drawPosText ()是根据一个个坐标点指定文字位置，drawTextOnPath ()是根据路径绘制。但drawText()的x,y参数是干嘛的呢？</p>
+<p>先来测试下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Paint paint=new Paint();</div><div class="line">        paint.setStyle(Paint.Style.FILL);</div><div class="line">        paint.setStrokeWidth(12);</div><div class="line">        paint.setTextSize(100);</div><div class="line"></div><div class="line">        String text=&quot;测试：my text&quot;;</div><div class="line">        canvas.drawText(text, 200, 400, paint);</div><div class="line"></div><div class="line">        //画两条线标记位置</div><div class="line">        paint.setStrokeWidth(4);</div><div class="line">        paint.setColor(Color.RED);</div><div class="line">        canvas.drawLine(0, 400, 2000, 400, paint);</div><div class="line">        paint.setColor(Color.BLUE);</div><div class="line">        canvas.drawLine(200, 0, 200, 2000, paint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-034ce9861f52b1d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="左对齐-left"></p>
+<p>可以看到，x,y并不是指定文字的中点位置，并且x,y与文字对齐方式有关（通过setTextAlign()指定，默认为left）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-a6c0fc7234bbf914.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="居中对齐-center"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-aa80878af37cf346.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="右对齐-right"></p>
+<p>（为了使文字完整，上面调整了下x,y的值）</p>
+<p>从上面三种情况得出结论，x所对应的竖线：</p>
+<ul>
+<li>左对齐 — 文字的左边界</li>
+<li>居中对齐 — 文字的中心位置</li>
+<li>右对齐 — 文字的左边界</li>
+</ul>
+<p>y对应的横线并不是文字的下边界，而是基准线Baseline</p>
+<p>看下面这张图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-512082b482008a3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>红色的Baseline是基准线，紫色的Top是文字的最顶部，也就是在drawText()中指定的x所对应，橙色的Bottom是文字的底部。<br>拿这些值如何获取呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Paint.FontMetrics fontMetrics=paint.getFontMetrics();</div><div class="line">        fontMetrics.top</div><div class="line">        fontMetrics.ascent</div><div class="line">        fontMetrics.descent</div><div class="line">        fontMetrics.bottom</div></pre></td></tr></table></figure></p>
+<p>记得要在设置完Paint的文字大小，宽度之类属性后再获取FontMetrics，<br>baseline对应对应值为0，在它下面的descent和bottom值为正，top和ascent为负。那文字的高度为<code>bottom - top</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-64f218ab8594bb3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>所以，实际绘制的时候取决于基线上一个点来绘制文字,而这个点有三种分别对应为left,center,right</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-1b709c4384247865.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>好啦，把drawText()中x,y参数讲清楚后实现文字居中就很容易了<br>直接上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//矩形背景</div><div class="line">        Paint bgRect=new Paint();</div><div class="line">        bgRect.setStyle(Paint.Style.FILL);</div><div class="line">        bgRect.setColor(Color.YELLOW);</div><div class="line">        RectF rectF=new RectF(200, 200, 800, 600);</div><div class="line">        canvas.drawRect(rectF, bgRect);</div><div class="line"></div><div class="line">        Paint textPaint=new Paint();</div><div class="line">        textPaint.setStyle(Paint.Style.FILL);</div><div class="line">        textPaint.setStrokeWidth(8);</div><div class="line">        textPaint.setTextSize(50);</div><div class="line">        textPaint.setTextAlign(Paint.Align.CENTER);</div><div class="line"></div><div class="line">        String text=&quot;测试：my text&quot;;</div><div class="line">        //计算baseline</div><div class="line">        Paint.FontMetrics fontMetrics=textPaint.getFontMetrics();</div><div class="line">        float distance=(fontMetrics.bottom - fontMetrics.top)/2 - fontMetrics.bottom;</div><div class="line">        float baseline=rectF.centerY()+distance;</div><div class="line">        canvas.drawText(text, rectF.centerX(), baseline, textPaint);</div></pre></td></tr></table></figure></p>
+<p>效果</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-8bf933b5d441a516.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>将对齐方式设置为center，那要让文字居中显示，x值就为矩形中心x值，y值也就是baseline的计算看下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-3c9cf9b18ff4e8db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><code>y = 矩形中心y值 + 矩形中心与基线的距离</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">距离 = 文字高度的一半 - 基线到文字底部的距离（也就是bottom）</div><div class="line">     = (fontMetrics.bottom - fontMetrics.top)/2 - fontMetrics.bottom</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章对你有帮助，给我些鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吕晴阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="吕晴阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自定义View/" rel="tag"># 自定义View</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/27/Java反射机制/" rel="next" title="Java反射机制">
+                <i class="fa fa-chevron-left"></i> Java反射机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
   </div>
 
 
@@ -363,6 +592,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -609,6 +844,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -634,6 +873,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2144148"></script>
+      <!-- UY END -->
     
   
 

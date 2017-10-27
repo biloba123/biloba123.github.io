@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java基础," />
 
 
 
@@ -97,17 +97,18 @@
 
 
 
-<meta name="description" content="走过的人说树枝长了，走过的人说树枝在长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="一、 反射概述1.1 反射机制定义Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类中的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。 1.2 反射机制的功能 在运行时判断任意一个对象所属的类。 在运行时构造任意一个类的对象。 在运行时判断任意一个类所具有的成员变量和方法。 在运行时调用任">
+<meta name="keywords" content="Java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射机制">
+<meta property="og:url" content="http://yoursite.com/2017/10/27/Java反射机制/index.html">
 <meta property="og:site_name" content="吕晴阳">
-<meta property="og:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta property="og:description" content="一、 反射概述1.1 反射机制定义Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类中的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。 1.2 反射机制的功能 在运行时判断任意一个对象所属的类。 在运行时构造任意一个类的对象。 在运行时判断任意一个类所具有的成员变量和方法。 在运行时调用任">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-11T10:34:50.069Z">
+<meta property="og:updated_time" content="2017-10-27T13:29:32.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="走过的人说树枝长了，走过的人说树枝在长">
+<meta name="twitter:title" content="Java反射机制">
+<meta name="twitter:description" content="一、 反射概述1.1 反射机制定义Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类中的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。 1.2 反射机制的功能 在运行时判断任意一个对象所属的类。 在运行时构造任意一个类的对象。 在运行时判断任意一个类所具有的成员变量和方法。 在运行时调用任">
 
 
 
@@ -137,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/27/Java反射机制/"/>
 
 
 
 
 
-  <title>tags | 吕晴阳</title>
+  <title>Java反射机制 | 吕晴阳</title>
   
 
 
@@ -321,40 +322,297 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/27/Java反射机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 21 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Android-Studio/" style="font-size: 12px; color: #ccc">Android Studio</a> <a href="/tags/Arduino/" style="font-size: 21px; color: #6f6f6f">Arduino</a> <a href="/tags/Fragment/" style="font-size: 12px; color: #ccc">Fragment</a> <a href="/tags/Fragmnet/" style="font-size: 12px; color: #ccc">Fragmnet</a> <a href="/tags/Git/" style="font-size: 21px; color: #6f6f6f">Git</a> <a href="/tags/Github/" style="font-size: 12px; color: #ccc">Github</a> <a href="/tags/Hotspot/" style="font-size: 12px; color: #ccc">Hotspot</a> <a href="/tags/IM/" style="font-size: 12px; color: #ccc">IM</a> <a href="/tags/Java基础/" style="font-size: 12px; color: #ccc">Java基础</a> <a href="/tags/MQTT/" style="font-size: 30px; color: #111">MQTT</a> <a href="/tags/NodeMCU/" style="font-size: 12px; color: #ccc">NodeMCU</a> <a href="/tags/Picture/" style="font-size: 12px; color: #ccc">Picture</a> <a href="/tags/Toast/" style="font-size: 12px; color: #ccc">Toast</a> <a href="/tags/View/" style="font-size: 12px; color: #ccc">View</a> <a href="/tags/WiFi/" style="font-size: 12px; color: #ccc">WiFi</a> <a href="/tags/drawable/" style="font-size: 12px; color: #ccc">drawable</a> <a href="/tags/keystore/" style="font-size: 12px; color: #ccc">keystore</a> <a href="/tags/sha1/" style="font-size: 12px; color: #ccc">sha1</a> <a href="/tags/shape/" style="font-size: 12px; color: #ccc">shape</a> <a href="/tags/tab/" style="font-size: 12px; color: #ccc">tab</a> <a href="/tags/自定义View/" style="font-size: 21px; color: #6f6f6f">自定义View</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Java反射机制</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T21:27:44+08:00">
+                2017-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/27/Java反射机制/" class="leancloud_visitors" data-flag-title="Java反射机制">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="一、-反射概述"><a href="#一、-反射概述" class="headerlink" title="一、 反射概述"></a>一、 反射概述</h2><h3 id="1-1-反射机制定义"><a href="#1-1-反射机制定义" class="headerlink" title="1.1 反射机制定义"></a>1.1 反射机制定义</h3><p>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类中的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
+<h3 id="1-2-反射机制的功能"><a href="#1-2-反射机制的功能" class="headerlink" title="1.2 反射机制的功能"></a>1.2 反射机制的功能</h3><ul>
+<li>在运行时判断任意一个对象所属的类。</li>
+<li>在运行时构造任意一个类的对象。</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法。</li>
+<li>在运行时调用任意一个对象的方法。</li>
+<li>生成动态代理。</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、-通过Java反射查看类信息"><a href="#二、-通过Java反射查看类信息" class="headerlink" title="二、 通过Java反射查看类信息"></a>二、 通过Java反射查看类信息</h2><h3 id="2-1-获得Class对象"><a href="#2-1-获得Class对象" class="headerlink" title="2.1 获得Class对象"></a>2.1 获得Class对象</h3><p>每个类被加载之后，系统就会为该类生成一个对应的Class对象。通过该Class对象就可以访问到JVM中的这个类。</p>
+<p>获取方式：</p>
+<ol>
+<li>使用Class类的forName(String clazzName)静态方法。该方法需要传入字符串参数，该字符串参数的值是某个类的全限定名（必须添加完整包名）。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class class1 = Class.forName(&quot;com.com.lvqingyang.interview.Person&quot;);</div></pre></td></tr></table></figure>
+<ol>
+<li>调用某个类的class属性来获取该类对应的Class对象。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class1 = Person.class;</div></pre></td></tr></table></figure>
+<ol>
+<li>调用某个对象的getClass()方法。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Person person = new Person();</div><div class="line">Class&lt;?&gt; class1 = person.getClass();</div></pre></td></tr></table></figure>
+<h3 id="2-2-获取class对象的属性、方法、构造函数等"><a href="#2-2-获取class对象的属性、方法、构造函数等" class="headerlink" title="2.2 获取class对象的属性、方法、构造函数等"></a>2.2 获取class对象的属性、方法、构造函数等</h3><ol>
+<li>获取class对象的成员变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Field[] allFields = class1.getDeclaredFields();//获取class对象的所有属性</div><div class="line">Field[] publicFields = class1.getFields();//获取class对象的public属性</div><div class="line">Field ageField = class1.getDeclaredField(&quot;age&quot;);//获取class指定属性</div><div class="line">Field desField = class1.getField(&quot;des&quot;);//获取class指定的public属性</div></pre></td></tr></table></figure>
+<ol>
+<li>获取class对象的方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Method[] methods = class1.getDeclaredMethods();//获取class对象的所有声明方法</div><div class="line">Method[] allMethods = class1.getMethods();//获取class对象的所有public方法 包括父类的方法</div><div class="line">Method method = class1.getMethod(&quot;info&quot;, String.class);//返回次Class对象对应类的、带指定形参列表的public方法</div><div class="line">Method declaredMethod = class1.getDeclaredMethod(&quot;info&quot;, String.class);//返回次Class对象对应类的、带指定形参列表的方法</div></pre></td></tr></table></figure>
+<ol>
+<li>获取class对象的构造函数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Constructor&lt;?&gt;[] allConstructors = class1.getDeclaredConstructors();//获取class对象的所有声明构造函数</div><div class="line">Constructor&lt;?&gt;[] publicConstructors = class1.getConstructors();//获取class对象public构造函数</div><div class="line">Constructor&lt;?&gt; constructor = class1.getDeclaredConstructor(String.class);//获取指定声明构造函数</div><div class="line">Constructor publicConstructor = class1.getConstructor(String.class);//获取指定声明的public构造函数</div></pre></td></tr></table></figure>
+<ol>
+<li>其他方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Annotation[] annotations = (Annotation[]) class1.getAnnotations();//获取class对象的所有注解</div><div class="line">Annotation annotation = (Annotation) class1.getAnnotation(Deprecated.class);//获取class对象指定注解</div><div class="line">Type genericSuperclass = class1.getGenericSuperclass();//获取class对象的直接超类的 Type</div><div class="line">Type[] interfaceTypes = class1.getGenericInterfaces();//获取class对象的所有接口的type集合</div></pre></td></tr></table></figure>
+<h2 id="三、通过Java反射生成并操作对象"><a href="#三、通过Java反射生成并操作对象" class="headerlink" title="三、通过Java反射生成并操作对象"></a>三、通过Java反射生成并操作对象</h2><h3 id="3-1-生成类的实例对象"><a href="#3-1-生成类的实例对象" class="headerlink" title="3.1 生成类的实例对象"></a>3.1 生成类的实例对象</h3><ul>
+<li>使用Class对象的newInstance()方法来创建该Class对象对应类的实例。这种方式要求该Class对象的对应类有默认构造器，而执行newInstance()方法时实际上是利用默认构造器来创建该类的实例。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object obj = class1.newInstance();</div></pre></td></tr></table></figure>
+<ul>
+<li>先使用Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建该Class对象对应类的实例。通过这种方式可以选择使用指定的构造器来创建实例。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Constructor&lt;?&gt; constructor = class1.getDeclaredConstructor(String.class);//获取指定声明构造函数</div><div class="line">obj = constructor.newInstance(&quot;hello&quot;);</div></pre></td></tr></table></figure>
+<h3 id="3-2-调用类的方法"><a href="#3-2-调用类的方法" class="headerlink" title="3.2 调用类的方法"></a>3.2 调用类的方法</h3><p>调用Method对象中的 Object invoke(Object obj, Object… args) 方法。第一个参数对应调用该方法的实例对象，第二个参数对应该方法的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 生成新的对象：用newInstance()方法</div><div class="line">Object obj = class1.newInstance();</div><div class="line">//首先需要获得与该方法对应的Method对象</div><div class="line">Method method = class1.getDeclaredMethod(&quot;setAge&quot;, int.class);</div><div class="line">//调用指定的函数并传递参数</div><div class="line">method.invoke(obj, 28);</div></pre></td></tr></table></figure>
+<p>要调用某个对象的private方法，则要先调用Method对象的<code>setAccessible(boolean flag)</code>方法。值为true，指示该Method在使用时应该取消Java语言的访问权限检查；false要实施Java语言的访问权限检查</p>
+<h3 id="3-3-访问成员变量值"><a href="#3-3-访问成员变量值" class="headerlink" title="3.3 访问成员变量值"></a>3.3 访问成员变量值</h3><ul>
+<li><p>读取成员变量值</p>
+<p>基本变量：getXXX(Object obj)  获取obj对象的该成员变量的值，XXX对应8种基本类型。</p>
+<p>引用类型：get(Object obj) </p>
+</li>
+<li><p>设置成员变量值</p>
+<p>基本变量：setXXX(Object obj, XXX val)  设置obj对象的该成员变量的值，XXX对应8种基本类型。</p>
+<p>引用类型：setXXX(Object obj, Object val)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//生成新的对象：用newInstance()方法</div><div class="line">Object obj = class1.newInstance();</div><div class="line">//获取age成员变量</div><div class="line">Field field = class1.getField(&quot;age&quot;);</div><div class="line">//将obj对象的age的值设置为10</div><div class="line">field.setInt(obj, 10);</div><div class="line">//获取obj对象的age的值</div><div class="line">field.getInt(obj);</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章对你有帮助，给我些鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吕晴阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="吕晴阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java基础/" rel="tag"># Java基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/27/你要了解的Android Studio 3.0新特新/" rel="next" title="你要了解的Android Studio 3.0新特新">
+                <i class="fa fa-chevron-left"></i> 你要了解的Android Studio 3.0新特新
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/27/Android Canvas的drawText()和文字居中方案/" rel="prev" title="Android Canvas的drawText()和文字居中方案">
+                Android Canvas的drawText()和文字居中方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
   </div>
 
 
@@ -363,6 +621,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -383,8 +647,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -482,6 +755,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、-反射概述"><span class="nav-number">1.</span> <span class="nav-text">一、 反射概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-反射机制定义"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 反射机制定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-反射机制的功能"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 反射机制的功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、-通过Java反射查看类信息"><span class="nav-number">2.</span> <span class="nav-text">二、 通过Java反射查看类信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-获得Class对象"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 获得Class对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-获取class对象的属性、方法、构造函数等"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 获取class对象的属性、方法、构造函数等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、通过Java反射生成并操作对象"><span class="nav-number">3.</span> <span class="nav-text">三、通过Java反射生成并操作对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-生成类的实例对象"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 生成类的实例对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-调用类的方法"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 调用类的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-访问成员变量值"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 访问成员变量值</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -609,6 +898,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -634,6 +927,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2144148"></script>
+      <!-- UY END -->
     
   
 

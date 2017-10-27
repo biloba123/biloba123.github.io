@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android Canvas的drawText()和文字居中方案]]></title>
+    <url>%2F2017%2F10%2F27%2FAndroid%20Canvas%E7%9A%84drawText()%E5%92%8C%E6%96%87%E5%AD%97%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88%2F</url>
+    <content type="text"><![CDATA[自定义View是绘制文本有三类方法123456789101112131415// 第一类public void drawText (String text, float x, float y, Paint paint)public void drawText (String text, int start, int end, float x, float y, Paint paint)public void drawText (CharSequence text, int start, int end, float x, float y, Paint paint)public void drawText (char[] text, int index, int count, float x, float y, Paint paint)&lt;!--more--&gt;// 第二类public void drawPosText (String text, float[] pos, Paint paint)public void drawPosText (char[] text, int index, int count, float[] pos, Paint paint)// 第三类public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint) 其中drawText()最常用，drawPosText ()是根据一个个坐标点指定文字位置，drawTextOnPath ()是根据路径绘制。但drawText()的x,y参数是干嘛的呢？ 先来测试下1234567891011121314Paint paint=new Paint(); paint.setStyle(Paint.Style.FILL); paint.setStrokeWidth(12); paint.setTextSize(100); String text=&quot;测试：my text&quot;; canvas.drawText(text, 200, 400, paint); //画两条线标记位置 paint.setStrokeWidth(4); paint.setColor(Color.RED); canvas.drawLine(0, 400, 2000, 400, paint); paint.setColor(Color.BLUE); canvas.drawLine(200, 0, 200, 2000, paint); 可以看到，x,y并不是指定文字的中点位置，并且x,y与文字对齐方式有关（通过setTextAlign()指定，默认为left） （为了使文字完整，上面调整了下x,y的值） 从上面三种情况得出结论，x所对应的竖线： 左对齐 — 文字的左边界 居中对齐 — 文字的中心位置 右对齐 — 文字的左边界 y对应的横线并不是文字的下边界，而是基准线Baseline 看下面这张图 红色的Baseline是基准线，紫色的Top是文字的最顶部，也就是在drawText()中指定的x所对应，橙色的Bottom是文字的底部。拿这些值如何获取呢？12345Paint.FontMetrics fontMetrics=paint.getFontMetrics(); fontMetrics.top fontMetrics.ascent fontMetrics.descent fontMetrics.bottom 记得要在设置完Paint的文字大小，宽度之类属性后再获取FontMetrics，baseline对应对应值为0，在它下面的descent和bottom值为正，top和ascent为负。那文字的高度为bottom - top 所以，实际绘制的时候取决于基线上一个点来绘制文字,而这个点有三种分别对应为left,center,right 好啦，把drawText()中x,y参数讲清楚后实现文字居中就很容易了直接上代码12345678910111213141516171819//矩形背景 Paint bgRect=new Paint(); bgRect.setStyle(Paint.Style.FILL); bgRect.setColor(Color.YELLOW); RectF rectF=new RectF(200, 200, 800, 600); canvas.drawRect(rectF, bgRect); Paint textPaint=new Paint(); textPaint.setStyle(Paint.Style.FILL); textPaint.setStrokeWidth(8); textPaint.setTextSize(50); textPaint.setTextAlign(Paint.Align.CENTER); String text=&quot;测试：my text&quot;; //计算baseline Paint.FontMetrics fontMetrics=textPaint.getFontMetrics(); float distance=(fontMetrics.bottom - fontMetrics.top)/2 - fontMetrics.bottom; float baseline=rectF.centerY()+distance; canvas.drawText(text, rectF.centerX(), baseline, textPaint); 效果 将对齐方式设置为center，那要让文字居中显示，x值就为矩形中心x值，y值也就是baseline的计算看下图 y = 矩形中心y值 + 矩形中心与基线的距离12距离 = 文字高度的一半 - 基线到文字底部的距离（也就是bottom） = (fontMetrics.bottom - fontMetrics.top)/2 - fontMetrics.bottom]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>自定义View</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java反射机制]]></title>
+    <url>%2F2017%2F10%2F27%2FJava%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%2F</url>
+    <content type="text"><![CDATA[一、 反射概述1.1 反射机制定义Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类中的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。 1.2 反射机制的功能 在运行时判断任意一个对象所属的类。 在运行时构造任意一个类的对象。 在运行时判断任意一个类所具有的成员变量和方法。 在运行时调用任意一个对象的方法。 生成动态代理。 二、 通过Java反射查看类信息2.1 获得Class对象每个类被加载之后，系统就会为该类生成一个对应的Class对象。通过该Class对象就可以访问到JVM中的这个类。 获取方式： 使用Class类的forName(String clazzName)静态方法。该方法需要传入字符串参数，该字符串参数的值是某个类的全限定名（必须添加完整包名）。 1Class class1 = Class.forName(&quot;com.com.lvqingyang.interview.Person&quot;); 调用某个类的class属性来获取该类对应的Class对象。 1class1 = Person.class; 调用某个对象的getClass()方法。 12Person person = new Person();Class&lt;?&gt; class1 = person.getClass(); 2.2 获取class对象的属性、方法、构造函数等 获取class对象的成员变量 1234Field[] allFields = class1.getDeclaredFields();//获取class对象的所有属性Field[] publicFields = class1.getFields();//获取class对象的public属性Field ageField = class1.getDeclaredField(&quot;age&quot;);//获取class指定属性Field desField = class1.getField(&quot;des&quot;);//获取class指定的public属性 获取class对象的方法 1234Method[] methods = class1.getDeclaredMethods();//获取class对象的所有声明方法Method[] allMethods = class1.getMethods();//获取class对象的所有public方法 包括父类的方法Method method = class1.getMethod(&quot;info&quot;, String.class);//返回次Class对象对应类的、带指定形参列表的public方法Method declaredMethod = class1.getDeclaredMethod(&quot;info&quot;, String.class);//返回次Class对象对应类的、带指定形参列表的方法 获取class对象的构造函数 1234Constructor&lt;?&gt;[] allConstructors = class1.getDeclaredConstructors();//获取class对象的所有声明构造函数Constructor&lt;?&gt;[] publicConstructors = class1.getConstructors();//获取class对象public构造函数Constructor&lt;?&gt; constructor = class1.getDeclaredConstructor(String.class);//获取指定声明构造函数Constructor publicConstructor = class1.getConstructor(String.class);//获取指定声明的public构造函数 其他方法 1234Annotation[] annotations = (Annotation[]) class1.getAnnotations();//获取class对象的所有注解Annotation annotation = (Annotation) class1.getAnnotation(Deprecated.class);//获取class对象指定注解Type genericSuperclass = class1.getGenericSuperclass();//获取class对象的直接超类的 TypeType[] interfaceTypes = class1.getGenericInterfaces();//获取class对象的所有接口的type集合 三、通过Java反射生成并操作对象3.1 生成类的实例对象 使用Class对象的newInstance()方法来创建该Class对象对应类的实例。这种方式要求该Class对象的对应类有默认构造器，而执行newInstance()方法时实际上是利用默认构造器来创建该类的实例。 1Object obj = class1.newInstance(); 先使用Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建该Class对象对应类的实例。通过这种方式可以选择使用指定的构造器来创建实例。 12Constructor&lt;?&gt; constructor = class1.getDeclaredConstructor(String.class);//获取指定声明构造函数obj = constructor.newInstance(&quot;hello&quot;); 3.2 调用类的方法调用Method对象中的 Object invoke(Object obj, Object… args) 方法。第一个参数对应调用该方法的实例对象，第二个参数对应该方法的参数。 123456// 生成新的对象：用newInstance()方法Object obj = class1.newInstance();//首先需要获得与该方法对应的Method对象Method method = class1.getDeclaredMethod(&quot;setAge&quot;, int.class);//调用指定的函数并传递参数method.invoke(obj, 28); 要调用某个对象的private方法，则要先调用Method对象的setAccessible(boolean flag)方法。值为true，指示该Method在使用时应该取消Java语言的访问权限检查；false要实施Java语言的访问权限检查 3.3 访问成员变量值 读取成员变量值 基本变量：getXXX(Object obj) 获取obj对象的该成员变量的值，XXX对应8种基本类型。 引用类型：get(Object obj) 设置成员变量值 基本变量：setXXX(Object obj, XXX val) 设置obj对象的该成员变量的值，XXX对应8种基本类型。 引用类型：setXXX(Object obj, Object val) 12345678//生成新的对象：用newInstance()方法Object obj = class1.newInstance();//获取age成员变量Field field = class1.getField(&quot;age&quot;);//将obj对象的age的值设置为10field.setInt(obj, 10);//获取obj对象的age的值field.getInt(obj); ​]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[你要了解的Android Studio 3.0新特新]]></title>
+    <url>%2F2017%2F10%2F27%2F%E4%BD%A0%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84Android%20Studio%203.0%E6%96%B0%E7%89%B9%E6%96%B0%2F</url>
+    <content type="text"><![CDATA[Android Studio 3.0稳定版刚发布，它相对于2.3版本有较大的优化和新功能，变得更加强大。那来看看都有哪些： （还没更新的去官网https://developer.android.google.cn/studio/index.html下载更新） Android Plugin for Gradle 3.0.01. 升级插件在build.gradle文件中更改 123456789101112buildscript &#123; repositories &#123; // Gradle 4.1 and higher include support for Google&apos;s Maven repo using // the google() method. And you need to include this repo to download // Android plugin 3.0.0 or higher. google() ... &#125; dependencies &#123; classpath &apos;com.android.tools.build:gradle:3.0.0&apos; &#125;&#125; 然后进行同步，这个过程有点慢，并且需要科学上网。完成后对应gradle也更新到4.1 gradle-wrapper.properties 12...distributionUrl=https\://services.gradle.org/distributions/gradle-4.1-all.zip 2. 新版本特性Android Plugin for Gradle 3.0.0主要提高了包含大量模块的项目的构建性能。在这些这些大型项目使用新插件可以更快的构建配置时间，对代码或资源应用简单的更改时，更快的增量构建时间。 除此之外还包含以下内容： 支持Android 8.0。 支持基于语言资源构建单独的APK。 支持Java 8库和Java 8语言功能（不用像之前使用Jack编译器）。 支持Android测试支持库1.0（Android测试实用程序和 Android测试协调器。 改进了ndk-build和cmake构建速度。 改进了渐变同步速度。 AAPT2默认启用。 使用ndkCompile更受限制，应该转而使用CMake或ndk-build来编译您要将其打包到APK中的本地代码。 Kotlin支持自从I/O大会宣布将Kotlin作为Android指定开发语言，Kotlin就变得很火。3.0也对Kotlin提供了完全的支持 将Java文件转换为Kotlin 便能将Java代码转换为Kotlin，不过转换后有些不正确的地方需要自行修改下 直接添加Kotlin文件 Activity等也支持直接添加Kotlin的模板 默认情况下，Kotlin和Java文件都会放在src/main/java目录下，如果你想把它们分开来，可以把Kotlin放在src/main/kotlin，并在sourceSets中添加以下配置12345android &#123; sourceSets &#123; main.java.srcDirs += &apos;src/main/kotlin&apos; &#125;&#125; Android Profiler新的Android Profiler 取代了Android监视器工具，并提供了一套新的工具来实时测量应用程序的CPU，内存和网络使用情况。点击工具栏的图标开启 从Android Profiler的概述时间轴上，单击CPU，MEMORY或 NETWORK时间线以访问相应的分析器工具。 1. CPU ProfilerCPU Profiler可帮助你通过触发示例或仪表化的CPU跟踪来分析应用程序的CPU线程使用情况。可以使用各种数据视图和过滤器来解决CPU性能问题。具体使用CPU Profiler指南 2. 内存分析器内存分析器可以帮助你识别内存泄漏和内存流失，从而导致静音，冻结甚至应用程序崩溃。它显示了应用程序内存使用的实时图形，可以捕获堆转储，强制垃圾收集和跟踪内存分配。具体使用内存分析器指南 3. 网络分析器网络分析器允许您监视应用程序的网络活动，检查每个网络请求的有效负载，并链接到生成网络请求的代码。具体使用网络分析器指南 APK剖析和调试Android Studio现在允许对任何APK进行配置和调试 或在welcome中选择 但它不会反编译代码，代码是smail格式的，要正确添加断点和查看堆栈跟踪，需要附加Java源文件和本机调试符号。 设备文件浏览器设备文件资源管理器允许你检查连接的设备的文件系统，并在设备和计算机之间传输文件。这将替代DDMS中可用的文件系统工具。在View &gt; Tool Windows &gt; Device File Explorer中打开 自适应图标向导Image Asset可以为Android8.0创建自适应启动器图标，同时为旧设备创建传统图标（必须设置compileSdkVersion为26或更高才能使用自适应启动器图标。） 即时应用支持Android Instant App能让用户免安装体验你的APP，在项目里可以将某些模块用它来实现。首先要求在SDK Manager中安装Instant Apps开发SDK 其他Android Things模块新建项目和新建模块向导中的新Android Things模板可帮助开发适用于Android的IOT设备。 支持字体资源为了支持Android 8.0中的新字体资源，Android Studio包含一个字体资源选择器，用于将 字体捆绑到应用程序中或配置项目以下载设备上的字体（如果可用）。布局编辑器还可以预览布局中的字体。 要尝试下载字体，请确保您的设备或模拟器正在运行Google Play Services v11.2.63或更高版本。（国内受限…） 布局编辑器更新了一些增强功能，包括以下内容： 新的工具栏布局和图标。 在组件树中更新布局。 改进的拖放视图插入。 在编辑器下面显示新的错误面板，显示修复建议的所有问题（如果可用）。 用于ConstraintLayout的各种UI增强功能]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android Studio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[View基础]]></title>
     <url>%2F2017%2F10%2F24%2FView%E5%9F%BA%E7%A1%80%2F</url>
     <content type="text"><![CDATA[View的位置参数 MotionEvent包括三种类型： ACTION_DOWN ACTION_MOVE ACTION_UP getX/getY 相对于View的坐标getRawX/getRawY 相对于手机屏幕的坐标 TouchSlop-滑动的最小距离获取该常量（8dp）1ViewConfiguration.get(getContext()).getScaledTouchSlop() VelocityTracker-速度追踪获取1VelocityTracker mVelocityTracker=VelocityTracker.obtain(); 测速123456//跟踪当前事件mVelocityTracker.addMovement(event);//获取速度mVelocityTracker.computeCurrentVelocity(1000);//设置测速时间段float xVelocity=mVelocityTracker.getXVelocity();float yVelocity=mVelocityTracker.getYVelocity(); 回收123//回收，释放内存mVelocityTracker.clear();mVelocityTracker.recycle(); GestureDetector-手势检测123mGestureDetector=new GestureDetector(context, this);//实现OnGestureListener接口mGestureDetector.setIsLongpressEnabled(false);//解决长按屏幕无法拖动的现象mGestureDetector.setOnDoubleTapListener(this);//实现OnDoubleTapListener 接管onTouchEvent方法12boolean consume=mGestureDetector.onTouchEvent(event);return consume; Tip: 监听滑动相关，自己在onTouchEvent中实现；监听双击之类，用GestureDetector Scroller-弹性滑动123456789101112131415public void smoothScrollTo(int destX,int destY,int duration)&#123; mScroller.startScroll(getScrollX(),getScrollY(),destX-getScrollX(),destY-getScrollY(),duration); &#125; public void smoothScrollBy(int x,int y,int duration)&#123; mScroller.startScroll(getScrollX(),getScrollY(),x+getScrollX(),y+getScrollY(),duration); &#125; @Override public void computeScroll() &#123; if (mScroller.computeScrollOffset()) &#123; scrollTo(mScroller.getCurrX(),mScroller.getCurrY()); postInvalidate(); &#125; &#125;]]></content>
@@ -136,8 +169,8 @@
         <category>Arduino</category>
       </categories>
       <tags>
-        <tag>Arduino</tag>
         <tag>MQTT</tag>
+        <tag>Arduino</tag>
       </tags>
   </entry>
   <entry>
@@ -148,8 +181,8 @@
         <category>Arduino</category>
       </categories>
       <tags>
-        <tag>Arduino</tag>
         <tag>MQTT</tag>
+        <tag>Arduino</tag>
         <tag>NodeMCU</tag>
       </tags>
   </entry>

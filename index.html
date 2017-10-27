@@ -85,7 +85,7 @@
 
 
 
-  <link rel="alternate" href="/rss2.xml" title="吕晴阳在这瞎写" type="application/atom+xml" />
+  <link rel="alternate" href="/rss2.xml" title="吕晴阳" type="application/atom+xml" />
 
 
 
@@ -99,13 +99,13 @@
 
 <meta name="description" content="走过的人说树枝长了，走过的人说树枝在长">
 <meta property="og:type" content="website">
-<meta property="og:title" content="吕晴阳在这瞎写">
+<meta property="og:title" content="吕晴阳">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="吕晴阳在这瞎写">
+<meta property="og:site_name" content="吕晴阳">
 <meta property="og:description" content="走过的人说树枝长了，走过的人说树枝在长">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吕晴阳在这瞎写">
+<meta name="twitter:title" content="吕晴阳">
 <meta name="twitter:description" content="走过的人说树枝长了，走过的人说树枝在长">
 
 
@@ -142,7 +142,7 @@
 
 
 
-  <title>吕晴阳在这瞎写</title>
+  <title>吕晴阳</title>
   
 
 
@@ -192,12 +192,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">吕晴阳在这瞎写</span>
+        <span class="site-title">吕晴阳</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">瞎写胡扯不怕被人打，写完就跑真刺激。。。</p>
+        <p class="site-subtitle">能力达不到野心时，静下心来学习</p>
       
   </div>
 
@@ -333,6 +333,509 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/27/Android Canvas的drawText()和文字居中方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/27/Android Canvas的drawText()和文字居中方案/" itemprop="url">Android Canvas的drawText()和文字居中方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T21:29:52+08:00">
+                2017-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/27/Android Canvas的drawText()和文字居中方案/" class="leancloud_visitors" data-flag-title="Android Canvas的drawText()和文字居中方案">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>自定义View是绘制文本有三类方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 第一类</div><div class="line">public void drawText (String text, float x, float y, Paint paint)</div><div class="line">public void drawText (String text, int start, int end, float x, float y, Paint paint)</div><div class="line">public void drawText (CharSequence text, int start, int end, float x, float y, Paint paint)</div><div class="line">public void drawText (char[] text, int index, int count, float x, float y, Paint paint)</div><div class="line"></div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line">// 第二类</div><div class="line">public void drawPosText (String text, float[] pos, Paint paint)</div><div class="line">public void drawPosText (char[] text, int index, int count, float[] pos, Paint paint)</div><div class="line"></div><div class="line">// 第三类</div><div class="line">public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)</div><div class="line">public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)</div></pre></td></tr></table></figure></p>
+<p>其中drawText()最常用，drawPosText ()是根据一个个坐标点指定文字位置，drawTextOnPath ()是根据路径绘制。但drawText()的x,y参数是干嘛的呢？</p>
+<p>先来测试下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Paint paint=new Paint();</div><div class="line">        paint.setStyle(Paint.Style.FILL);</div><div class="line">        paint.setStrokeWidth(12);</div><div class="line">        paint.setTextSize(100);</div><div class="line"></div><div class="line">        String text=&quot;测试：my text&quot;;</div><div class="line">        canvas.drawText(text, 200, 400, paint);</div><div class="line"></div><div class="line">        //画两条线标记位置</div><div class="line">        paint.setStrokeWidth(4);</div><div class="line">        paint.setColor(Color.RED);</div><div class="line">        canvas.drawLine(0, 400, 2000, 400, paint);</div><div class="line">        paint.setColor(Color.BLUE);</div><div class="line">        canvas.drawLine(200, 0, 200, 2000, paint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-034ce9861f52b1d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="左对齐-left"></p>
+<p>可以看到，x,y并不是指定文字的中点位置，并且x,y与文字对齐方式有关（通过setTextAlign()指定，默认为left）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-a6c0fc7234bbf914.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="居中对齐-center"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-aa80878af37cf346.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="右对齐-right"></p>
+<p>（为了使文字完整，上面调整了下x,y的值）</p>
+<p>从上面三种情况得出结论，x所对应的竖线：</p>
+<ul>
+<li>左对齐 — 文字的左边界</li>
+<li>居中对齐 — 文字的中心位置</li>
+<li>右对齐 — 文字的左边界</li>
+</ul>
+<p>y对应的横线并不是文字的下边界，而是基准线Baseline</p>
+<p>看下面这张图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-512082b482008a3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>红色的Baseline是基准线，紫色的Top是文字的最顶部，也就是在drawText()中指定的x所对应，橙色的Bottom是文字的底部。<br>拿这些值如何获取呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Paint.FontMetrics fontMetrics=paint.getFontMetrics();</div><div class="line">        fontMetrics.top</div><div class="line">        fontMetrics.ascent</div><div class="line">        fontMetrics.descent</div><div class="line">        fontMetrics.bottom</div></pre></td></tr></table></figure></p>
+<p>记得要在设置完Paint的文字大小，宽度之类属性后再获取FontMetrics，<br>baseline对应对应值为0，在它下面的descent和bottom值为正，top和ascent为负。那文字的高度为<code>bottom - top</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-64f218ab8594bb3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>所以，实际绘制的时候取决于基线上一个点来绘制文字,而这个点有三种分别对应为left,center,right</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-1b709c4384247865.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>好啦，把drawText()中x,y参数讲清楚后实现文字居中就很容易了<br>直接上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//矩形背景</div><div class="line">        Paint bgRect=new Paint();</div><div class="line">        bgRect.setStyle(Paint.Style.FILL);</div><div class="line">        bgRect.setColor(Color.YELLOW);</div><div class="line">        RectF rectF=new RectF(200, 200, 800, 600);</div><div class="line">        canvas.drawRect(rectF, bgRect);</div><div class="line"></div><div class="line">        Paint textPaint=new Paint();</div><div class="line">        textPaint.setStyle(Paint.Style.FILL);</div><div class="line">        textPaint.setStrokeWidth(8);</div><div class="line">        textPaint.setTextSize(50);</div><div class="line">        textPaint.setTextAlign(Paint.Align.CENTER);</div><div class="line"></div><div class="line">        String text=&quot;测试：my text&quot;;</div><div class="line">        //计算baseline</div><div class="line">        Paint.FontMetrics fontMetrics=textPaint.getFontMetrics();</div><div class="line">        float distance=(fontMetrics.bottom - fontMetrics.top)/2 - fontMetrics.bottom;</div><div class="line">        float baseline=rectF.centerY()+distance;</div><div class="line">        canvas.drawText(text, rectF.centerX(), baseline, textPaint);</div></pre></td></tr></table></figure></p>
+<p>效果</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-8bf933b5d441a516.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>将对齐方式设置为center，那要让文字居中显示，x值就为矩形中心x值，y值也就是baseline的计算看下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5734256-3c9cf9b18ff4e8db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><code>y = 矩形中心y值 + 矩形中心与基线的距离</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">距离 = 文字高度的一半 - 基线到文字底部的距离（也就是bottom）</div><div class="line">     = (fontMetrics.bottom - fontMetrics.top)/2 - fontMetrics.bottom</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/27/Java反射机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/27/Java反射机制/" itemprop="url">Java反射机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T21:27:44+08:00">
+                2017-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/27/Java反射机制/" class="leancloud_visitors" data-flag-title="Java反射机制">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="一、-反射概述"><a href="#一、-反射概述" class="headerlink" title="一、 反射概述"></a>一、 反射概述</h2><h3 id="1-1-反射机制定义"><a href="#1-1-反射机制定义" class="headerlink" title="1.1 反射机制定义"></a>1.1 反射机制定义</h3><p>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类中的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
+<h3 id="1-2-反射机制的功能"><a href="#1-2-反射机制的功能" class="headerlink" title="1.2 反射机制的功能"></a>1.2 反射机制的功能</h3><ul>
+<li>在运行时判断任意一个对象所属的类。</li>
+<li>在运行时构造任意一个类的对象。</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法。</li>
+<li>在运行时调用任意一个对象的方法。</li>
+<li>生成动态代理。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/27/Java反射机制/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/27/你要了解的Android Studio 3.0新特新/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吕晴阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕晴阳">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/27/你要了解的Android Studio 3.0新特新/" itemprop="url">你要了解的Android Studio 3.0新特新</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T21:25:47+08:00">
+                2017-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/27/你要了解的Android Studio 3.0新特新/" class="leancloud_visitors" data-flag-title="你要了解的Android Studio 3.0新特新">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Android Studio 3.0稳定版刚发布，它相对于2.3版本有较大的优化和新功能，变得更加强大。那来看看都有哪些：</p>
+<p>（还没更新的去官网<a href="https://developer.android.google.cn/studio/index.html下载更新）" target="_blank" rel="external">https://developer.android.google.cn/studio/index.html下载更新）</a></p>
+<h2 id="Android-Plugin-for-Gradle-3-0-0"><a href="#Android-Plugin-for-Gradle-3-0-0" class="headerlink" title="Android Plugin for Gradle 3.0.0"></a>Android Plugin for Gradle 3.0.0</h2><h3 id="1-升级插件"><a href="#1-升级插件" class="headerlink" title="1. 升级插件"></a>1. 升级插件</h3><p>在build.gradle文件中更改</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/27/你要了解的Android Studio 3.0新特新/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/View基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -342,7 +845,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
+      <meta itemprop="name" content="吕晴阳">
     </span>
 
     
@@ -499,7 +1002,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
+      <meta itemprop="name" content="吕晴阳">
     </span>
 
     
@@ -661,7 +1164,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
+      <meta itemprop="name" content="吕晴阳">
     </span>
 
     
@@ -822,7 +1325,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
+      <meta itemprop="name" content="吕晴阳">
     </span>
 
     
@@ -981,7 +1484,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
+      <meta itemprop="name" content="吕晴阳">
     </span>
 
     
@@ -1138,7 +1641,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
+      <meta itemprop="name" content="吕晴阳">
     </span>
 
     
@@ -1297,7 +1800,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
+      <meta itemprop="name" content="吕晴阳">
     </span>
 
     
@@ -1432,501 +1935,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/14/一步一步来，记全Git命令和用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吕晴阳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/14/一步一步来，记全Git命令和用法/" itemprop="url">一步一步来，记全Git命令和用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-14T17:18:08+08:00">
-                2017-09-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/14/一步一步来，记全Git命令和用法/" class="leancloud_visitors" data-flag-title="一步一步来，记全Git命令和用法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Git基本配置"><a href="#Git基本配置" class="headerlink" title="Git基本配置"></a>Git基本配置</h2><p>Git配置使用git config分三种，存放在不同位置</p>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/etc/gitconfig</td>
-<td>系统中对所有的用户都适用的配置。git config –system …</td>
-</tr>
-<tr>
-<td>~/.gitconfig</td>
-<td>用户目录下的配置文件只适用该用户。git config –global …</td>
-</tr>
-<tr>
-<td>当前项目下的.git/config</td>
-<td>配置只对当前项目有效。git config …</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/14/一步一步来，记全Git命令和用法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/13/来一套不一样的Toast--自定义Toast/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吕晴阳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/13/来一套不一样的Toast--自定义Toast/" itemprop="url">来一套不一样的Toast--自定义Toast</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T22:04:44+08:00">
-                2017-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/13/来一套不一样的Toast--自定义Toast/" class="leancloud_visitors" data-flag-title="来一套不一样的Toast--自定义Toast">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Android默认ToastAndroid默认Toast只是一个简单的黑框框，有时觉得太单调了，不如自己实现一套较精致，不一样的Toast。<br>先看下效果（动图可能有点大）：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5734256-a2d05ae14c6c7746.gif?imageMogr2/auto-orient/strip" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/13/来一套不一样的Toast--自定义Toast/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/13/Fragment中添加menu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吕晴阳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/5734256/2c5ca10c-8991-4770-bcef-4f8f0217b13b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吕晴阳在这瞎写">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/13/Fragment中添加menu/" itemprop="url">Fragment中添加menu</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T20:43:12+08:00">
-                2017-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/13/Fragment中添加menu/" class="leancloud_visitors" data-flag-title="Fragment中添加menu">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Fragment是Android里面中一个非常灵巧的设计，它可以看做ui模块，由活动托管。熟练的使用它们能优雅的实现很复杂的界面，而且用它们编写UI界面，相对于用一个个Activity所消耗内存少得多，而且切换很流畅，可以参考知乎客户端。</p>
-<p>但是，Fragment使用过程中会出现一些小问题，这里讲如何在Fragment中添加menu。我们都知道在活动中添加menu只用编写好menu，在onCreateOptionsMenu中加载，并在onOptionsItemSelected中处理点击事件就可以了，按照这个流程先试下</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/13/Fragment中添加menu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1980,7 +1988,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1991,7 +1999,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2002,7 +2010,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
